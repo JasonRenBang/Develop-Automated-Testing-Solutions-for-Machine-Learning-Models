@@ -1,6 +1,6 @@
 # Develop-Automated-Testing-Solutions-for-Machine-Learning-Models
 
-How to run the project:
+How to run the project demoPrototype.py:
 
 1.  Set up a virtual environment: python -m venv openai-env
 2.  Activate the virtual environment:
