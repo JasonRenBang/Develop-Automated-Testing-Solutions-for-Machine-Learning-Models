@@ -1,0 +1,339 @@
+Topic: Sora
+
+Paragraph1: 
+Another groundbreaking generative artificial intelligence tool from the company behind ChatGPT unveiled Thursday is expected to accelerate the proliferation of deepfake videos and have implications for virtually every industry. 
+Sora, an AI application that takes written prompts and turns them into original videos, is already so powerful that one AI expert says it has him "terrified." 
+"Generative AI tools are evolving so rapidly, and we have social network — which leads to an Achilles heel in our democracy and it couldn't have happened at a worse time," Oren Etzioni, founder of TruMedia.org, told CBS MoneyWatch. The nonprofit organization dedicated to fighting AI-based disinformation in political campaigns focuses on identifying manipulated media, including so-called deepfake videos. 
+"As we're trying to sort this out we're coming up against one of the most consequential elections in history," he added, referring to the 2024 presidential election. 
+Sora maker OpenAI shared a teaser of its text-to-video model on X, explaining that it can instantaneously create sophisticated, 60-second-long videos "featuring highly detailed scenes, complex camera motion and multiple characters with vibrant emotions."
+The tool is not yet publicly available. For the time being, OpenAI has restricted its use to "red teamers" and some visual artists, designers and filmmakers to test the product and deliver feedback to the company before it's released more widely. 
+Safety experts will evaluate the tool to understand how it could potentially create misinformation and hateful content, OpenAI said.
+Advances in technology have seemingly outpaced checks and balances on these kinds of tools, according to Etzioni, who believes in using AI for good and with guardrails in place. 
+"We're trying to build this airplane as we're flying it, and it's going to land in November if not before — and we don't have the Federal Aviation Administration, we don't have the history and we don't have the tools in place to do this," he said. 
+All that's stopping the tool from becoming widely available is the company itself, Etzioni said, adding that he's confident Sora, or a similar technology from an OpenAI competitor, will be released to the public in the coming months. 
+Of course, any ordinary citizen can be affected by a deepfake scam, in addition to celebrity targets. 
+"And [Sora] will make it even easier for malicious actors to generate high-quality video deepfakes, and give them greater flexibility to create videos that could be used for offensive purposes,"  Dr. Andrew Newell, chief scientific officer for identify verification firm, iProov, told CBS MoneyWatch. 
+This puts the onus on organizations, like banks, to develop their own AI-based tools to protect consumers against potential threats. 
+Banks that rely on video authentication security measures are most exposed, he added. 
+
+Paragraph2: 
+A sunbathed Dalmatian tiptoes across a windowsill, a Chinese New Year parade engulfs a city street, an archeologist digs up a chair from desert sand.
+Videos posted online display these events, but none of them happened. They make up the first publicly available work created by OpenAI's newly unveiled video-generation tool Sora.
+Sora composes videos, lasting up to one-minute long, based on user prompts, just as ChatGPT responds to input with written responses and Dall-E offers up images.
+The video-generator is currently in use by a group of product testers but is not available to the public, OpenAI said in a statement on Thursday.
+These products carry the potential to improve and ease video storytelling, but they could also supercharge internet misinformation and enhance government propaganda, blurring the already-faint line between real and fake content online, experts told ABC News.
+AI-generated videos, meanwhile, threaten to reinforce hateful or biased perspectives picked up from the underlying training materials that make their creation possible, they added.
+"The clarity of truth we thought we had with recorded photography and video is gone," Kristian Hammond, a professor of computer science at Northwestern University who studies AI, told ABC News. "We've inadvertently built a world of propaganda engines."
+In response to ABC News' request for comment, OpenAI pointed to a webpage that outlines measures taken by the company to prevent abuse of Sora.
+"We'll be taking several important safety steps ahead of making Sora available in OpenAI's products," the company website says. "We are working with red teamers  --  domain experts in areas like misinformation, hateful content, and bias  -- who will be adversarially testing the model."
+The company plans to use some safety features already in palace for its image generator Dall-E, the website says, including a tool that polices text prompts to ensure they do not violate rules against "extreme violence, sexual content, hateful imagery, celebrity likeness, or the IP of others."
+Experts who spoke to ABC News emphasized the difficulty of evaluating a demo product that has yet to be released to the general public. They sounded alarm, however, over the opportunities for misuse of the video generator and the challenges of implementing fully effective safeguards.
+"Realistic images of events play into people's assumptions about what's going on in the real world and can be used to deceive people," Sam Gregory, executive director of Witness, an advocacy group that aims to ensure the use of video to protect human rights, told ABC News.
+The risks posed by AI-generated content have stoked wide concern in recent weeks.
+Fake, sexually explicit AI-generated images of pop star Taylor Swift went viral on social media in late January, garnering millions of views. A fake robocall impersonating President Joe Biden's voice discouraged individuals from voting in the New Hampshire primary last month.
+Experts commended the steps taken by OpenAI to prohibit abuses of Sora along these lines. They warned though of the product's likely capability to create deep fakes and the difficulty of preventing such videos.
+"They can probably put in a filter that says, 'Don't generate any videos with Taylor Swift,' but people will find ways around it," Gary Marcus, an emeritus professor at New York University and author of the book ''Rebooting AI," told ABC News.
+
+Topic: Sugar
+
+Paragraph1: 
+When the cupcake is half across your child’s face and half inside them, then it’s fully to blame for their bouncing-off-the-walls behavior, right? Wrong. While the belief that sugar causes hyperactivity in children is widespread and perpetuated by the children themselves, it’s a myth, according to Sabiha Kanchwala, MD, general pediatrics specialist at Loma Linda University Children’s Hospital. 
+The popularized Feingold diet, which eliminated food additives, brought sugar under close scrutiny I n the 1970s. But some years later in the 1980s, the Feingold diet came under the same scrutiny, and multiple contradicting studies were established. The findings concluded sugar has no influence on children’s behavior.
+“We’re almost 40 years later, and people still think sugars make their kids really active or hyperactive,” Kanchwala says.
+Kanchwala says a large part of this myth comes from the power of our own minds. If we go into a situation expecting a certain outcome, we will likely see that outcome. It’s a placebo effect.
+“Even children know the power of their brains. They say, ‘I ate all this candy, I’m never going to go to sleep!’” Kanchwala says. “We know sugar in and of itself is not what’s making your child hyper, but there are a variety of other things leading to their excessive activity.”
+Most often, hyperactivity in children results from poor sleep. Kanchwala recommends following careful sleep hygiene to ensure your child sleeps enough. Turn off electronics well before bedtime, create a sleep conducive environment, follow a bedtime routine (including time), and make sure your child gets anywhere from 10-12 hours a night for school-aged children, and 8-10 hours a night for teenagers. Getting enough exercise during the day also helps children sleep.
+“Adults are more tired and somnolent throughout the day when they’re not getting good sleep; kids can be really hyper,” Kanchwala says. “One of the biggest factors for patient’s hyperactivity is lack of sleep.”
+A chronic condition can also cause hyper behavior, such as attention deficit hyperactivity disorder (ADHD). Kanchwala says these kids’ behavior can look like hyperactivity when it’s not. If you believe your child struggles with a such a condition, speak to your pediatrician about an evaluation right away, particularly for school-aged children.
+Other factors include stress, trauma, or caffeine. Some candies, such as chocolate, contain caffeine and create a supposed ‘sugar rush.’ Caffeine can prevent drowsiness, cause restlessness, increase heart rate, and cause other side effects. It’s possible your child’s behavior matches up with caffeine intake.
+It’s important to remember that children are children, and what a parent interprets as hyperactivity may be the natural, healthy energy of young life. Delve into the source of your child’s hyperactivity. Consider when and where your child’s hyperactivity blooms, if their hyperactivity corresponds with their sleep, or if another kind of behavioral health issue might play a role.
+Sugar itself may not make your child hyper, but it does affect your child’s health and future. Kanchwala says processed sugar intake leads to obesity in childhood. This major health problem results in both childhood and adulthood health issues such as high blood pressure, diabetes, liver disease, and even mental health conditions.
+Processed sugar often shows up on labels of overall unhealthy foods — fast, processed foods that make easy grab-and-go snacks for a busy household.
+“Unfortunately, foods readily available are going to have added sugars that make it taste better and last longer,” Kanchwala says. “Parents should be mindful of the foods children eat that contain this processed sugar.”
+The more unprocessed the diet, the healthier for the child, says Kanchwala. She recommends avoiding juice and other sugary snacks such as fruit gummies and replacing them with foods containing naturally occurring sugars. For example, replace apple juice with an apple.
+Kanchwala also warns parents against offering sugary treats as incentive for good behavior. This can set a precedent disordered eating and even eating disorders. Kanchwala says to use stickers or a fun activity as positive reinforcement in place of food.
+“We still want children to be children and allowed to have these kinds of treats and foods occasionally, but not regularly,” Kanchwala says.
+Consult your pediatrician or family physician about your child’s sugar intake and hyperactivity. Make an appointment online.
+
+Paragraph2: 
+Are you convinced the reason for your son or daughter's rowdiness lies in a box of Milk Duds? You?re not alone. Many concerned parents and health organizations believe there is a link between a child's diet and behavior. The latest group to join the debate is the nonprofit Center for Science in the Public Interest, which recently released a report charging that the government, professional agencies and the food industry have been ignoring evidence that diet affects behavior. However, the majority of studies so far haven't found a connection, and most in the medical industry maintain there is no known link between sugar and hyperactivity.
+Still, many concerned parents feel certain they've seen a cause-and-effect relationship between sweets and rowdiness. Admittedly, more research would be needed to completely rule out the possibility of a link, but there are many plausible reasons other than sugar why a child may be bouncing off the walls.
+The notion that food can have an effect on behavior grew popular in 1973 when allergist Benjamin Feingold, M.D., published the Feingold Diet. He advocated a diet free of salicylates, food colorings and artificial flavoring for treating hyperactivity. Although Feingold?s diet didn't call for eliminating sugar specifically, it did suggest to many parents that food additives might be better avoided. Little surprise, then, that refined sugar soon came under scrutiny.
+Then a 1978 study published in the journal Food and Cosmetics Toxicology found that hyperactive children given glucose tolerance tests had results that suggested reactive hypoglycemia (low blood sugar). As yet, though, there are no good theories to explain the connection.
+In the past 10 years, several studies have examined the effects of sugar on children's behavior. Here are the aspects of the studies that make them credible:
+Known quantities of sugar in the diets were studied.
+The studies compared the effects of sugar with those of a placebo (a substance without any active ingredients).
+The children, parents and researchers involved in the studies never knew which children were given which diets (this is known as a "double-blind" study and helps to prevent unconscious biases from affecting the results).
+
+Topic: Body Heat Lost
+
+Paragraph1: 
+MedicalMythMonday investigates common myths about the human body and determines if they are true or false. Today, we answer the question: Do we lose body heat through our heads?
+Answer: This myth is FALSE. You do not lose most of your body heat through the head.
+This myth probably came from experiments in the 1950s, when military researchers exposed subjects to frigid temperatures. The final results concluded that 40-45% of all body heat was lost through the head due to the nature of the experiment leaving the participants’ heads exposed to the cold air.
+In reality, the head only represents about 10% of the body’s total surface area. Therefore making 40-45% body heat loss unlikely. Per an article by WebMD, according to Richard Ingebretsen, MD, Ph.D., an adjunct instructor in the department of internal medicine at the University of Utah School of Medicine, “The real reason we lose heat through our head is that most of the time when we’re outside in the cold, we’re clothed…If you don’t have a hat on, you lose heat through your head, just as you would lose heat through your legs if you were wearing shorts.”
+In conclusion, the only places you lose body heat are the areas where there is no clothing or a protective covering. So bundle up during the winter months and you should stay nice and warm.
+
+Paragraph2: 
+Q: Mom always said to wear a hat when it’s cold because you lose half of your body heat through your head. Was she right?
+A: Nobody wants to question their mother. With that in mind, let’s start with this: Mom is right about wearing a hat when it’s cold outside. Her math on heat loss, however, is a bit off.
+The truth is, you won’t squander anywhere close to 50% of your body heat through an uncapped noggin. Will you lose some heat? Absolutely…but a 2008 study shows that it’s more in the 10% range for adults.
+That figure makes sense, as it roughly matches the head’s percentage of your body’s total surface area. Or to put it another way, you’re losing heat in direct proportion to the amount of exposed skin.
+Going without a hat when the temperature takes a polar plummet essentially brings the same result as wearing a pair of shorts (bare legs) or a tank top (bare arms). Basically, you’re getting cold if you’re not covered.
+The lesson here is that you can shed heat from any part of the body that’s facing the elements “au naturel.” No one area sheds significantly more heat than another.
+So where did the myth about heat pouring out of your head originate? Most point to an old U.S. Army Field Manual that estimated soldiers could lose 40% to 45% of their body heat through an unprotected head.
+But using that logic means that you could be naked except for a hat and lose about the same amount of body heat as a fully clothed person with a bare head. Not likely, right?
+That’s why this cold weather myth melts under the heat of a more scientific examination.
+But let’s get one thing straight: It’s best to wear a hat when it gets cold. Frigid weather isn’t exactly skin-friendly. Frostbite symptoms can start to develop quickly on any exposed skin — especially ears and noses — when temperatures dip into the single digits Fahrenheit.
+Plus, you do lose some body heat through your head — which can eventually lead down the road toward hypothermia.
+One more bit of information, too: Children tend to lose a higher percentage of body heat through their heads. The reason? Compared to adults, their heads are bigger in comparison to their bodies.
+So maybe Mom was onto something, after all.
+
+Topic: Knuckles 
+
+Paragraph1: 
+Anxiety, restlessness or just pure pleasure — there are lots of reasons why many find comfort in cracking their knuckles. But, does it cause arthritis? The short answer is no.
+According to Dr. John Fackler, orthopedic surgeon at Houston Methodist, "There are no known detrimental effects to cracking your knuckles." At worst, knuckle-cracking may cause temporary swelling or a feeling of weakness in the hands — but arthritis, not quite.
+What does happen when you crack your knuckles?
+Dr. Fackler explains that the pressure applied to knuckles "causes vapor pockets" within the fluid inside the joints. This then "creates a vacuum that sucks the joint apart rapidly," causing a popping sound in the knuckles.
+So why do so many people find relief in cracking their knuckles? Cracking your knuckles "feels as if it relieves tension in the joints," Dr. Fackler says. "When that phenomenon happens, it causes a distraction of the joint and separates the joint for a brief second. If traction is applied to the joint, it feels as if it loosens up and is more mobile."
+So I can crack my knuckles freely? There's no risk of arthritis?
+There are several types of arthritis, but knuckle-cracking is most commonly associated with osteoarthritis. In simple terms, "Osteoarthritis is a disease where the articular cartilage, located at the end of the bone on each joint, starts to break down and flake off," causing pain, stiffness and swelling over time, Dr. Fackler explains.
+"Osteoarthritis is age- and genetic-related...and people don't get significant osteoarthritis until they're in their 40s, 50s or older," Dr. Fackler says. "The vast majority of arthritis patients have a genetic predisposition to the disease. However, if you have an injury when you're young or tear a ligament or meniscus, that puts you at higher risk for arthritis when you get older."
+But wait, there's more. Here's what you shouldn't crack.
+Dr. Fackler advises avoiding popping the neck, as it can cause inflammation around the nerves and lead to more serious injuries long-term. "I encourage people not to habitually pop their necks, especially kids."
+So, as it turns out, you can crack your knuckles, limitlessly, without the consequences of arthritis. Just don't be too caught off guard if your rings fit a little tighter after a knuckle-cracking session. Cracking knuckles can cause temporary swelling or a subtle increase in the size of your hands, but is ultimately harmless. "There are no long-term studies that show knuckle-cracking causes any damage," Dr. Fackler says. Until then, "When it comes to your fingers, don't even worry about it."
+Snap, crackle and pop away.
+
+Paragraph2: 
+You may have heard that knuckle cracking causes arthritis, but there’s no evidence to support this claim. Knuckle cracking may lead to other issues, though. Keep reading to learn more about this habit and why you may want to cut back on the knuckle cracking.
+What the research says about knuckle cracking
+Several studies have been done to determine if knuckle cracking is associated with arthritis. To date, no link has been found.
+In one report, researchers from the Uniformed Services University of the Health Sciences examined a group of 215 people. Twenty percent of them said they cracked their knuckles regularly.
+Results showed 18.1 percent of those participants who cracked their knuckles and 21.5 percent of those who didn’t had arthritis in their hands. The investigators concluded that the chance of having arthritis was about the same in both groups.
+In 1998, Dr. Donald Unger performed an informal study that was published as a letterTrusted Source to the editor in the journal Arthritis and Rheumatism. As part of his experiment, the doctor cracked the knuckles on his left hand at least twice a day for 50 years, while leaving the knuckles on his right hand alone to serve as a control.
+Dr. Unger estimated that the knuckles on his left hand were cracked at least 36,500 times. In his letter, he concluded that after 50 years, neither of his hands showed symptoms of arthritis, and there were no differences between the two hands.
+The results of a study published in 2017 agreed with Dr. Unger’s conclusions. Researchers found knuckle crackers had the same level of physical function as those who didn’t crack their knuckles.
+Complications of cracking knuckles
+Knuckle cracking doesn’t cause arthritis, but some research suggests the habit may not be completely harmless.
+If a joint gets locked when it pops, knuckle cracking could lead to injuries in your hand.
+A study conducted in 1990 showed chronic knuckle cracking may affect hand health. Researchers looked at 300 participants and found those who cracked their joints had a higher rate of inflammation and a weaker grip.
+This finding is controversial, however. Newer research published in 2017 concluded that knuckle cracking didn’t affect grip strength.
+You should see a doctor if you experience the following from knuckle cracking:
+pain
+swelling
+an unusual noise
+decreased motion
+It’s also a good idea to seek professional help if the habit interferes with your daily life.
+Treatment for complications
+If you experience hand inflammation, you should see your doctor. Treatments to reduce swelling may include:
+ice or heat therapies
+Epsom salt baths
+rest
+massage
+certain over-the-counter (OTC) medicines
+To improve grip strength, your doctor might recommend specific exercises that require you to grasp different devices.
+
+Topic: Napoleon
+
+Paragraph1: 
+The sunshine-colored desert goby (Chlamydogobius eremius) doesn't look like Australia's toughest fish. The males are small homebodies who watch over egg-filled nests in spring-fed pools. Yet scientists have pinpointed a behavior in these fish that's long been attributed to short-statured men. The smallest of the desert goby males seem to have a "Napoleon complex" that makes them quick to attack larger males. The idea behind the ferocity, say scientists, is that when the smaller males act quickly and aggressively, they scare off bigger competition before that competition can even size them up [source: Svensson].
+It's the animal kingdom's version of a colloquial term used to describe vertically challenged men, who are stereotypically quick to start fights because they feel inferior to their taller counterparts. The name comes from the French general Napoleon Bonaparte, who was believed to have compensated for his lack of height with a bellicose personality.
+There's just one problem: Napoleon wasn't really short. At the time of his death, he measured 5 feet 2 inches in French units, the equivalent of 5 feet 6.5 inches (169 centimeters) in modern measurement units, notes the National Gallery of Victoria. (For reference, the global mean height for men born in 1996 and measured at age 18 in 2014 was 171 centimeters, or 5 feet 7.3 inches). The Napoleon confusion stems from the French and British measurement systems used at the time of the French military leader's reign, which used the same terms even though the actual measurements varied.
+Napoleon was of average height, but his battle strategies may have earned him a reputation for being short. Apparently, Napoleon preferred to surround himself with very tall soldiers, and these members of his personal guard made him look short-statured in comparison. He's also said to have been mean-spirited, a character trait that could have fueled his quarrelsome reputation. Napoleon had a habit of spilling ink or food on women's clothing when he didn't like the cut of their cloth, making him one of the earliest members of the fashion police. He also severely restricted the rights of women [source: National Gallery of Victoria].
+While the idea that Napoleon was shorter than average is clearly a myth, the use of the term "Napoleon complex" endures. It may not be fully applicable to humans, but researchers are discovering it's quite prevalent among animals where conflicts frequently arise over resources and mates. For example, if resources are scarce, smaller males have more to gain by attacking larger males. Even if the smaller animal only has a 50-50 chance of winning, it takes those odds.
+If resources are abundant, all bets should be on the little guy, too. Small animals are still more likely to attack larger ones, and the Goliaths are more likely to retreat because they know they can seek alternative resources elsewhere [source: Morrell]. Maybe there's something to the Napoleon strategy after all.
+
+Paragraph2: 
+More than 200 years after his death, the French autocrat and conqueror Napoleon Bonaparte is making headlines again due to the just-announced upcoming release of the big budget epic Napoleon, starting Joaquin Phoenix. But while Napoleon himself wanted to be remembered as a benevolent ruler of men, one of the most remembered traits of the man is that he was of short stature. Which is weird because Napoleon was actually taller than average. Below, the National Post’s Tristin Hopper explains how this misconception became so widespread. This story was originally published in 2016.
+Nearly 200 years after his death, there are only two things that almost everyone uniformly knows about Napoleon Bonaparte: He was French, and he was short.
+Article content
+Bonaparte was in fact born in Corsica not long after it was annexed by France. Also, at about 5’7”, he was taller than the average Frenchman of the time. Taller, in fact, than recent French president Nicolas Sarkozy. The only reason we think otherwise is because of one of the most successful trolling campaigns of all time. Napoleon hated being depicted as short, and that’s exactly why 19th century Brits set out to do it as much as humanly possible.
+The standard explanation for Napoleon’s mistaken shortness is that French inches of the era were slightly longer than those in England, so his reported height of 5’2” was mistranslated.
+Nevertheless, this doesn’t explain why British cartoons from the latter years of the Napoleonic Wars have a persistent theme of the Frenchman being ridiculously small.
+As is now tradition with leaders who take their countries to war with Britain, Napoleon spent years as a favourite punching bag for English caricaturists.
+Napoleon, like most militaristic autocrats, didn’t like any of this short-staturing one bit.
+During a brief period of Franco-British peace in the early 1800s, the French leader sent a flurry of diplomatic notes across the English Channel demanding that Britain censor its press.
+The French leader even took it so far as to see his mocking depictions as a “deliberate provocation,” as the historian Frederick Kagan wrote in a 2007 history of Napoleon.
+Bonaparte had been able to order tight controls on the French press, which had previously been among the most free and liberalized in the world. Much like today, Britons took quiet pride in their outrageous media, and ignored the French demands. By late 1803, redcoats were back to shooting at the French anyway, so the point became moot.
+Much like anyone else who tries to conquer Europe, Napoleon had a well-documented vision of himself as a “great man” of history.
+“Even when I am gone, I shall remain in people’s minds the star of their rights,” he would write.
+But after his defeat at the Battle of Waterloo, as Napoleon shuffled around in exile on the South Atlantic island of Saint Helena, he seemed to harbour worries that the cartoonists might have done permanent damage to his carefully cultivated superman image.
+Before he died, the exiled emperor reportedly said that Gillray “did more than all the armies of Europe to bring me down.”
+It’s the highest compliment that can ever be paid to a political cartoonist — which makes its authenticity all the more suspicious.
+But regardless of who said it, they were absolutely right; a pissy, tiny Napoleon has now become as iconic an image as a crazy-haired Albert Einstein.
+Small Napoleons can be seen everywhere from Garmin commercials, a 1956 Bugs Bunny short, the 1970s cartoon Schoolhouse Rock!, the 1989 film Bill and Ted’s Excellent Adventure and the short-lived 2000 series Jack-of-All-Trades, in which he was played by 2’8” actor Verne Troyer.
+And in 1995, exactly two hundred years after the pivotal French Revolutionary battle in which Napoleon began his rise to power, young Millennials could have tuned into an episode of the cartoon Pinky and the Brain in which Brain, an Orson Welles-esque mouse, is mistaken for the inches-tall French Emperor.
+As one palace onlooker whispers to another as Brain-Napoleon enters the room, “he really is tiny.”
+
+Topic: Stretch
+
+Paragraph1: 
+Ask the doctor: Stretching before exercise
+Q. Should I stretch before or after my workout to help prevent muscle injuries and soreness? I've gotten conflicting advice on this.
+A. We all remember the importance placed on stretching in our high school physical education classes. However, recent expert opinion has moved away from static stretching before activity and toward a gradual and active warm-up period before exercise. Stretching a healthy muscle before exercise does not prevent injury or soreness.
+Muscles are made of bundles of tiny fibers. In a typical exercise-related muscle strain, these fibers develop microscopic tears. Theoretically, stretching before exercise should make the muscles more pliable and less likely to tear. But when studies have compared rates of injury or muscle soreness in people who stretch before exercise and those who don't, they have found little benefit to stretching. In fact, stretching a cold, tight muscle could lead to injury.
+Instead, try a brief warm-up to get the blood flowing to your major muscle groups and loosen your joints. For example, instead of launching immediately into a brisk walk, spend five to 10 minutes taking a leisurely stroll with long strides, and then increase the pace gradually. Or when you begin exercising on a treadmill or other gym machine, start on a low setting. This will also allow your heart and muscles to respond gradually to the increased demands of exercise.
+
+Paragraph2: 
+Stretching is an essential part of an effective workout, but sometimes it’s easier to just skip it. Over the years, conflicting information about how and when to stretch has made some give up on it. Always stretch before you exercise. Don’t stretch before a workout. A pre-workout stretch can prevent injury. Stretching before a game or race can hinder performance. 
+But don’t let the confusion dissuade you from stretching.
+“It's beneficial to stretch both before and after your workout,” says Mary Kimbrough, PT, DPT, OCS, a physical therapist at Hinge Health. “People who stretch before and after their workouts stick with it because they feel more prepared for their workouts, and it helps them relax and transition out of their workouts afterwards.” What’s more, stretching regularly can help relieve pain that can get in the way of your ability to be active.
+Here, learn the benefits of stretching, the different types of stretches, the best time to do them, and some specific stretches recommended by Hinge Health physical therapists.
+Why Is Stretching Important?
+Stretching can provide both physical benefits (like releasing tight muscles) and mental benefits (like reducing stress). Some of the benefits depend on the type of stretching you’re doing. 
+Static stretches are what most people think of when they hear the word stretching. You get into a position that lengthens a muscle, like touching your toes (which helps lengthen your hamstrings), and hold it for about 30 seconds. 
+Dynamic stretches look very different because they’re movement-based. Moves like high knees or side-to-side lunges loosen muscles and joints by taking them through their full range of motion. 
+Here are some benefits you’ll get from incorporating both types of stretches: 
+Increased flexibility. This is probably the best-known benefit of stretching and the one with the most research to support it. “There's strong evidence that stretching improves flexibility and range of motion,” says Dr. Kimbrough. Flexibility is the ability of joints and surrounding muscles, tendons, ligaments, and tissue to move through a full range of motion without pain or restriction. The more flexible you are, the easier it will be to reach overhead to grab dishes off a top shelf, bend over to pick something up, or twist to throw a frisbee. While all types of stretching can increase flexibility, static stretches tend to offer the most long-term benefit. 
+Improved athletic performance. Dynamic stretches in particular have been shown to have a more significant effect than static stretches on enhancing performance. This doesn’t just apply to elite athletes, though. It also refers to running, biking, playing tennis, or doing whatever else keeps you active.
+Improved relaxation. Stretching can help ease muscle tension and stress that builds up in your body. “We go-go-go all day,” says Dr. Kimbrough. “Any type of stretching can give you a moment for reflection or calmness.” To maximize the benefit, pair your stretches with deep, slow diaphragmatic breathing. You can even close your eyes as you’re holding stretches to make the experience more soothing.
+Injury prevention. Preparing your body for activity by doing dynamic stretches before you work out may minimize your risk of injury. When you have good flexibility and a full range of motion in all of your joints, your body is better able to distribute loads and forces that it encounters as you move, says Dr. Kimbrough. 
+Pain relief. Both dynamic and static stretches can coach your body into being active, particularly if you’ve been more sedentary because of persistent pain. Gentle exercise — at Hinge Health, we call this exercise therapy — retrains your body’s pain system that you’re safe to move. Read more about this benefit of stretching below.
+When Is the Best Time to Stretch?
+It depends on why you’re stretching. 
+To Increase Flexibility
+If you’re looking to increase flexibility, you want to focus on static stretches, where you hold a position for about 30 seconds. The best time to do static stretches for flexibility is after warming your body up — often, after a workout or doing some yoga. Muscles lengthen more when they’re warm, so you may see greater improvements when you stretch after a workout. You’ll also be less likely to pull or strain a muscle when it’s warm and pliable. A post-workout stretch also aids recovery by increasing blood flow to deliver oxygen and nutrients and whisk away waste products like lactic acid. (This can also help reduce some post-workout soreness.) 
+To Prepare for a Workout
+If you want to loosen up before you work out, dynamic stretches that involve movement are the way to go. Dynamic stretching increases blood flow to warm up muscles, lubricates your joints, and raises your heart and breathing rates to prepare your body to meet the physical demands of the exercise. 
+
+Topic: Cholesterol
+
+Paragraph1: 
+What is Cholesterol?
+There are two types of cholesterol: blood cholesterol, which our bodies make and our livers recycle; and dietary cholesterol, found in some of the foods we eat. 
+Although high blood cholesterol levels increase heart disease risk, cholesterol in itself is not necessarily bad. In fact, it’s an essential part of our body’s cells, vitamin D, hormones, and bile acids. 
+Eggs contain dietary cholesterol and this has led to confusion about their impact on heart health. So should you be worried about cholesterol when eating eggs?
+Are Eggs Bad For Cholesterol Levels?
+The short answer is no.
+The latest Heart Foundation recommendations put no limit on how many eggs healthy people can eat each week. The Heart Foundation state that eggs have a minimal effect on blood cholesterol levels and eggs are encouraged as part of a heart healthy eating pattern with a reminder to be mindful of what you choose to eat with them.
+CSIRO research has also shown that eggs can be enjoyed on a daily basis. The CSIRO conducted a range of research, both in clinical trials and in a survey of more than 84,000 Australians, and found that those who ate more eggs had a better overall diet and better overall health.
+Why are high Cholesterol levels Bad?
+Cholesterol is a type of lipid, which is a waxy substance that forms an important part of your body’s cells. While cholesterol is essential to our bodies, having too much of it in the bloodstream (especially LDL cholesterol) can increase the risk of heart disease. 
+High cholesterol levels can lead to fatty deposits building up in blood vessels which eventually makes it difficult for blood to flow around the body. These deposits can break off and form clots that may cause a heart attack or stroke. 
+High cholesterol levels can be caused by genetics but are also commonly caused by unhealthy diet and lifestyle choices. So, while you can’t change your genetics, many people can lower their cholesterol levels by eating a healthy diet and exercising regularly. 
+In the past, some dietary experts did recommend limiting dietary cholesterol and egg intake, but this was based on studies with dietary cholesterol intakes well above what's found in an egg. As health and nutrition research has continued and our understanding of diet has improved, healthy eating guidelines now state that dietary cholesterol (and eggs) have a minimal impact on blood cholesterol levels in most people.
+How Much Cholesterol Is In An Egg?
+Eggs contain approximately 398mg of cholesterol per serve (2x60g egg), mostly in the egg yolk, and are one of the key contributors to cholesterol intake in the diet. Importantly they are relatively low in saturated fat (3.4g per serve) as saturated fat has a greater impact on cholesterol levels than dietary cholesterol intake.
+Eggs also contain 13 essential vitamins and nutrients including quality protein, antioxidants and healthy fats such as omega-3s.
+Do Eggs Raise Cholesterol Levels?
+While eggs do contain high levels of dietary cholesterol, multiple studies have shown they have a minimal impact on blood cholesterol levels, especially when consumed as part of a healthy diet. 
+Current evidence indicates there is no link between the number of eggs eaten and the risk of coronary heart disease. Eggs have a neutral relationship with heart health, meaning they neither increase nor decrease the risk of heart disease in the general population. 
+How Many Eggs Is Too Much?
+Given eggs have a minimal impact on blood cholesterol and are not linked to heart disease risk in the general population, eggs can be enjoyed freely as part of a healthy diet. The Heart Foundation places no limit on egg intake for healthy adults.
+For individuals with an increased risk of heart disease (such as those with diabetes or high cholesterol levels), the Heart Foundation suggests a limit of seven eggs per week while research continued to better understand this population group. 
+
+Paragraph2: 
+Research has found a link between eating eggs and an increased risk of heart disease and death. But do you need to worry about eating eggs? We look behind the headlines.  
+People who eat more eggs have a higher risk of heart disease and death, a new study has found.
+The researchers believe this is due to the cholesterol in eggs. This contradicts current thinking that the cholesterol in foods isn’t a cause for concern, as eating saturated fat (the kind found in butter, cheese and meat) does more to your levels of cholesterol. Although people with heart disease used to be warned against eating eggs, this hasn’t been the case for about 20 years, and UK guidelines on healthy eating do not recommend a limit on the amount of cholesterol we should be consuming.  
+The research  
+Researchers have published results from a large study linking egg consumption to an increased risk of heart disease and death. The researchers at the Northwestern University in Chicago collected data from six US studies, involving 29,615 people in total. These studies were observational, meaning that they collected information about people’s diets and monitored their health outcomes, rather than asking people to follow a certain diet.  
+At the start of the studies, people were asked to provide detailed information about their diets, including how many eggs they eat per day. In the US where the study was carried out, one large egg contains 186 milligrams of dietary cholesterol (a large egg in the UK is bigger, containing 235 mg). Participants also provided other information about their lifestyles, such as how much exercise they do. Their health was then monitored for an average of 17.5 years. 
+The average American consumes approximately 295 mg of cholesterol per day, including 3 to 4 eggs per week. The study found that for each half an egg consumed per day, people had a 6 per cent higher risk of developing cardiovascular disease, and an 8 per cent higher risk of death over 17.5 years.  
+To find out whether cholesterol in the eggs could explain this association, the researchers then looked at people’s cholesterol intake separately. For each additional 300 mg of cholesterol consumed per day (from eggs, meat and high-fat dairy products), participants had a 17 per cent higher risk of developing cardiovascular disease, and an 18 per cent higher risk of death.  
+When the researchers then compared the risks associated with egg consumption and cholesterol consumption, they found that the cholesterol content of eggs explained the increase in the risks observed with egg consumption. This suggests that the cholesterol in eggs is likely to be driving the increased risks observed with consuming eggs. 
+UK nutrition guidelines recommend eating eggs as part of a healthy balanced diet, as they are a good source of protein and vitamins. The researchers suggested that their findings should be considered in future updates of dietary guidelines.  
+How good was the research?  
+Strengths of the study include its large size, including nearly 30,000 people, and that participants were followed for a long time (17.5 years). The information collected about participants’ diets was also very detailed, meaning that the researchers could take into account how much saturated fat, meat, fibre and sodium they consumed. 
+Importantly, however, this was an observational study - rather than a trial with people being asked to consume different amounts of eggs – so it can only find associations, not a cause and effect. It’s possible, for instance, that people who already have a higher risk of heart disease and death due to other unknown factors also happen to eat more eggs. 
+Another weakness of the study is that people were only asked about their diets once, so the researchers had no way of knowing whether people changed their egg consumption over the course of the study. 
+
+Topic: Dog years
+
+Paragraph1: 
+Most people use the equation: one year of a dog’s life is equal to seven human years…we are here to debunk this myth. The truth is that this method isn’t entirely accurate. 
+Historically, the “one dog year equals seven human years” method was created to simply show that dogs age much faster than their humans. Today, scientists and researchers have developed a more precise method of calculating a dog’s age to human years.
+Let’s dig right in…
+How do I calculate my dog’s age in human years?
+If you’re looking to calculate your dog’s age in human years more accurately, you can now use this new formula created by researchers at the University of California San Diego School of Medicine. 
+These researchers studied the way human and dog DNA changes over time specifically looking at patterns called methyl groups in humans and Labrador Retrievers. From this research, they concluded that you can calculate a dog’s age to human years by multiplying the natural logarithm of the dog’s age by 16 and adding 31. Their formula looks like this: (human_age = 16ln(dog_age) + 31). As you can see, this formula is pretty complex.
+For an easier (and also seemingly accurate) way to estimate your dog’s age, you can follow this chart  for small, medium, and large dogs under 100 lbs.
+The first year of a dog’s life is equal to 15 human years. 
+The second year of a dog’s life is equal to about nine human years.
+Each additional year is equal to about four or five human years.
+So, you’re probably wondering why this is more accurate than the “one dog year equals seven human years” method.
+Best way to explain this is that it takes into account that not all dog breeds age in the same ways. In general, we do know that smaller breeds tend to live longer than larger breeds.  Therefore, it’s helpful to break down a dog age chart in terms of size, as you’ll see below. 
+
+Paragraph2: 
+Pet owners have been asking how old our dogs are in human years for centuries (and probably longer).
+We do this mostly because it is fun to speculate how old our pets would be if they suddenly transformed into a human, although there is a practical use, too.
+By comparing our dogs age with a human equivalent, it helps us get a sense of their life span, their energy levels and the kind of health issues we can expect. This helps us get a sense of what is normal and what symptoms may be out of the ordinary.
+How old is a dog in human years?
+The common belief is that dogs age seven times faster than human beings. Fortunately, the real number is actually slightly less, meaning our dogs can enjoy more years with us than they would were this myth true.
+Yet, it is not as simple as them ageing the human equivalent of an easy to remember, round number each year. In fact, dogs age at different rates throughout their lifetime and their size plays an important factor in determining their growth.
+While the table above gives you a more accurate indicator of how old your dog is in human years, you may prefer a less accurate but more straightforward method. If so, the general rule to follow is that your dog ages 15 human years in year one, 9 years in year two, and 5 years thereafter.  
+How do you calculate how old a dog is?
+Researchers base the figures in the table above on many factors, most of which are physical.
+For instance, we estimate that a 1-year-old dog is about the equivalent to a 15-year-old teenager because all of their teeth have developed, they are strong and energetic and they have reached (or are approaching) sexual maturity.
+Meanwhile, as dogs get older, their teeth start to show wear and tear and they are more likely to succumb to illnesses and ailments which we tend to associate with elderly humans, such as arthritis, cloudy eyes, loose skin and grey hair.
+Unfortunately, researchers still don’t know why larger breeds of dog tend to age faster than smaller breeds. Certainly, this is quite uncommon amongst other species, with larger animals tending to live relatively long lives (whales, elephants), while small animals live shorter lives (rodents, small birds).
+Whatever the reason, older dogs tend to age much more rapidly in their final years, while smaller dogs tend to decline more steadily.  
+
+Topic: Tree
+
+Paragraph1: 
+The huge storms many Australians have experienced recently have damaged or toppled old trees which had withstood the vagaries of our weather for the past century or more.
+This is what we can expect as our climate changes, with storm events more frequent, wind speeds stronger and rainfall heavier. These all contribute to trees falling or dropping large branches.
+But there’s something you might not think of as linked to climate change. As storms intensify in our new climate, we’re likely to see more lightning strikes. And that means our tallest trees will be hit more often.
+Is lightning always lethal to trees?
+Most of us are used to the rules we were told about lightning and trees from childhood. Don’t shelter under a tree during a thunder storm. Lightning never strikes in the same place twice.
+How do these rules apply from the perspective of a tree? Old trees are often the tallest thing around. When lightning strikes, they are more likely to be struck. You’d think a lightning strike would be game over for most trees. In fact, the effects can vary enormously.
+The damage done depends on the tree species, whether it was sheet or forked lightning, how wet it was and where the lightning hits the earth and dissipates.
+Strikes can be up to a million volts, generating temperatures up to 20,000°C. For a tree unlucky enough to be hit by one of these events, it’s all over. The sap inside the tree instantly turns to steam, which can cause it to literally explode, or lose great strips of wood and bark. It would be an excellent idea not to be under a tree when this happens.
+Trees are not very good conductors of electricity. If the trunk of the tree is very wet from rain, the lightning will course through the water and dust on the trunk down to the earth, causing little damage to the tree itself. You can sometimes see the sooty residue left on parts of the tree after a strike like this. You may well notice the tree will appear to be undamaged and continue to grow well.
+Sometimes, lightning will strike one side of a tree. Such a strike often kills the tree’s living tissues in a strip running along a large branch, vertically down the trunk to the ground, or even ending a metre or two above the ground. You’ll notice the lightning scar on trees like these, as it’s very visible. The wood behind the scar often decays over time, leaving a hollow behind. Trees can often recover from strikes like this, if the scar and decay are not too great.
+There is a splendid variegated elm growing at Melbourne University’s Burnley Campus which was struck by lightning almost 30 years ago. Many of us thought it would die, but it defied the odds. Over the following years, I observed the long, narrow lightning scar deepening as the wood decayed. As more years passed, its trunk broadened and the scar eventually grew over. If you go past today, you will see no evidence of wounds or scars. But you and I know a secret – its trunk is hollow but strong.
+Lightning can cause unexpected tree deaths well after the strike
+For some trees when there is a small or no lightning scar, the tree appears to be fine only to die suddenly between two and 12 months later. This may be due to the strike causing a serious disruption to the tree’s metabolism or because it’s been unable to fend off fungal disease or insect pests after being weakened by the strike.
+If the lightning goes to the earth through the roots, there may well be no symptoms of a strike visible above ground. Underground, it can be a different story, with potentially catastrophic damage to the root system. If the whole root system is damaged, the tree can die quickly, or fail over time as the roots decay. If only some roots have been killed, the tree may decline slowly for no obvious reason.
+Some trees do seem more susceptible to lightning than others. I’ve seen a number of pines and other conifers die after a strike, for instance, while many eucalypts and oaks recover and remain healthy. It is possible to install a lightning protection system on a tree, but they’re costly and rarely installed in Australia.
+If you know a tree has been struck by lightning, you would be wise to keep an eye on it. Often, the serious damage is not immediately obvious and will only be revealed in the weeks and months ahead. For some trees, the full impact only becomes clear in the following spring when they fail to recover or resume normal growth. An inspection by a qualified arborist would be a good investment.
+
+Paragraph2: 
+Of course, when you hear thunder, you look for . . . lightning! Maybe you even count the seconds between a clap of thunder and a flash of lightning. This can help you measure how close or far away the lightning occurs.
+What exactly is lightning? Quite simply, it’s a bright flash of electricity. It can occur within a single cloud, between clouds, and between a cloud and the ground. The latter, often called cloud-to-ground lightning, is what we commonly think of as a lightning bolt that we see during a thunderstorm.
+What causes cloud-to-ground lightning? Small particles of ice collide within thunderclouds, causing an electric charge to build up. Objects on the ground, especially taller things like mountains, buildings, trees, and even people, can also build up an electric charge. When these charges meet, they connect. Electric current flows rapidly from the cloud to the ground. This causes a lightning strike.
+Have you ever experienced static electricity? It has a similar cause. For example, walking across a carpet makes you build up electric charge. When you touch something metal, you may feel a shock! That’s static electricity moving between you and the object.
+A flash of lightning is only a few inches wide. However, it appears much larger to the human eye. It can also be very dangerous—even deadly. There is a great deal of electricity in a flash of lightning, and it’s also very hot. A single bolt can generate temperatures of about 54,000º F. That’s about six times hotter than the surface of the Sun!
+So, what happens when that powerful bolt of lightning hits an object on Earth? In particular, what happens when lightning strikes a living tree? The type of tree, its overall health, and the amount of moisture it contains all affect how the tree is impacted. Of course, the intensity of the lightning itself also plays a role.
+Much of the damage is a result of what happens when the moisture inside a tree meets the super-hot temperatures caused by lightning. A tree’s moist tissues often sit just below the outer layer of bark. This is why some lightning strikes result in the bark of a tree appearing to explode in large chunks.
+If the outer layer of bark is soaked from heavy rainfall, the lightning may travel along the outside of the tree to the ground. This results in little damage. At other times, though, intense lightning bolts may split trees in two and cause them to burst into flame from the inside out.
+A tree that has been hit by lightning may live for many years. Others might need to be cut down if they pose a danger of falling on people or property. Some large trees have been known to have been hit by lightning on many separate occasions.
+If a tree struck by lightning doesn’t catch fire and burn to the ground, it may survive for quite a while with its injuries. Lightning-damaged trees, however, will often be more susceptible to damage from insects, disease, and decay.
+Have you ever seen a tree that’s been struck by lightning? How about other objects? Lightning may be dangerous, but it’s also a very interesting weather phenomenon! Now you’ll know what causes these bright flashes of light during the next thunderstorm.
+
+
+Topic: shark vs mosquitoes
+
+paragraph1: 
+Mosquitoes keep me up at night.
+If you ask someone about what things scare people the most, there’s a list of usual suspects: shark attacks, heights, enclosed spaces, etc. Mosquitoes usually don’t make the cut—but they frighten me more than almost anything else.
+This fear might be a bit irrational in Seattle, where I live. Our climate is too mild for the types of mosquitoes that harbor serious diseases. In other parts of the world, however, families have good reason to be afraid. Mosquitoes and the diseases they carry kill more than half a million people every year. Consider this mind-blowing statistic:
+Of all the illnesses mosquitoes spread, malaria is the worst by far. More than 200 million people suffer from it every year, and a child dies from malaria every other minute of every day. If you survive, it can leave you vulnerable to other debilitating diseases and chronic anemia. It’s an awful, painful disease (I wrote about what it feels like to have malaria a couple years ago).
+Melinda and I encounter a lot of suffering through our work, but one of the worst things I’ve ever seen is a child having seizures from cerebral malaria in Tanzania. I will never forget watching his small body twist in agony, as his parents waited to find out if he would survive. I wouldn’t wish that experience on anyone.
+So why exactly are people more afraid of sharks than mosquitoes? The late Hans Rosling would argue that humans are hardwired to fear things that cause us physical harm. This instinct is practical if you live in poverty (on level 1 or 2), where an animal attack is more likely to kill you. But if you can afford life-saving healthcare, it can distort your perception of how significant a threat really is.
+Even if you know that you’re 50,000 times more likely to get killed by a mosquito than a shark, human instinct wins out. A photo of a shark attack victim on the evening news evokes a visceral reaction, because the threat is obvious. A picture of a malaria victim in a hospital ward doesn’t trigger our fear instinct in the same way.
+Despite this, I’m determined to spread the word about mosquitoes—which is why I’m bringing back Mosquito Week here on Gates Notes.
+Everything I’m posting this week is dedicated to my least favorite pest. You can read some good news about a country that hopes to eliminate malaria by 2020. You can see how the bed nets the Mozambique Ministry of Health and World Vision distributed last year on behalf of the Gates Notes Insider community are making a difference. I’m going to be talking about mosquitoes on my social channels all week, and I hope you’ll join the conversation.
+As long as Hollywood keeps making blockbusters about sharks, I’ll keep talking about why everyone should be more scared of a tiny bug than a 3,000-pound carnivore. Jaws is nothing compared with the flying terror that is a mosquito.
+
+Paragraph2: 
+If we were rational creatures, we would fear our back yards more than our beaches.
+Though oceans contain real-life monsters like the great white, our lawns and parks are home to humankind’s deadliest foe: the ubiquitous mosquito.
+“Harvester of human populations,” “the grim reaper,” “the deadliest hunters of human beings on the planet” — these are some of the ways that history professor Timothy C. Winegard describes these flying pests in his new book “Mosquito: A Human History of Our Deadliest Predator” (Dutton), out Tuesday.
+The numbers speak for themselves: “The mosquito has killed more people than any other cause of death in human history,” writes Winegard. “Statistical extrapolation situates mosquito-inflicted deaths approaching half of all humans that have ever lived.”
+In other words, during our 200,000 years on Earth, the lowly mosquito has murdered an estimated 52 billion of us.
+Last year mosquitoes killed 850,000 people — but the annual average hovers around 2 million. Sharks, by contrast, killed 10.
+There are 110 trillion mosquitoes stalking the world at this very moment (with only a few places, like Antarctica, the Seychelles and a few French Polynesian islands outside the range of its proboscis). These insects harbor at least 15 lethal diseases. The most deadly are the “toxic twin” of malaria and yellow fever, but mosquitoes also transmit other lethal viruses, like West Nile and Zika, worms and parasites.
+Meanwhile, a big enough swarm could leech half the blood from an adult human in just two hours.
+Maybe it’s time for the Discovery Channel’s “Shark Week” to rebrand as “Mosquito Week.”
+The mosquito emerged 190 million years ago looking disarmingly similar to the way it does today. Like now, it carried its own “weapons of mass destruction” that decimated the dinosaurs. Mosquitoes injected deadly diseases, including malaria and worms (similar to heartworms that dogs get today), into even the most heavily armored beasts.
+Entomologists George and Roberta Poinar wrote in “What Bugged the Dinosaurs?” that mosquitoes “were the top predators in the food chain” and they shaped “the destiny of the dinosaurs just as they shape our world today.”
+Of course, mosquitoes not only survived after the dinosaur’s extinction — but thrived. Winegard argues that the mosquito exists as a foil to humanity’s progress — haunting us as an unseen player in some of history’s most pivotal moments.
+Mosquitoes helped topple Alexander the Great, who likely developed malaria, which killed him before he was able to unite East and West, Winegard writes. “Had this malarious mosquito not sucked the life out of Alexander, all indications point toward an advance into the Far East. Had this occurred, it would have upended the course of history and humankind to the point where modern society would literally be unrecognizable.”
+Malaria also played a key role in halting Genghis Khan and his Mongolian army. “The mosquito helped prevent the West from being completely overrun. She harnessed her malarial might and held the reins of Mongol conquest, steering them away from Europe,” he writes.
+The pests also played a role in the American Revolution and the Civil War. It tipped the balance in favor of Washington’s army because many of the Brits, unlike the Americans, were not “seasoned” against malaria, meaning they had not developed immunity. Also, mosquito-repelling quinine was sent in greater quantities to British troops in the Caribbean and India than to America, displacing a key advantage for the Redcoats.
+And during the Civil War, soldiers were five times more likely to die from malaria than in battle — and many of the hotbed mosquito zones were located in the South.
+Even during World War II, German malariologists pressed the Nazi officers to open dikes and refilled marshes with brackish water in Italy to “encourage the proliferation of the deadly mosquito species, Anopheles labranchiae, which thrives in brackish environments,” to act as an “act of biological warfare” against the Allied troops.
+“The mosquito sponsored both the rise and fall of ancient empires,” Winegard concludes. “She has prowled the most momentous and pivotal battles . . . outmaneuvered the most celebrated generals and military minds ever mustered to arms, slaying many of these men in the course of her carnage.”
