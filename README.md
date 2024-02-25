@@ -26,13 +26,9 @@ How to run the project:
         Verification: Verify the setup by typing echo $OPENAI_API_KEY in the terminal. It should display your API key.
 
     Windows:
-    Open the Start menu and search for "Environment Variables".
-    Click on "Edit the system environment variables".
-    In the System Properties window, click on the "Environment Variables" button.
-    In the Environment Variables window, click on "New" under the "User variables" section.
-    Enter "OPENAI_API_KEY" as the variable name and your API key as the variable value.
-    Click "OK" to save the variable.
-    Click "OK" to close the Environment Variables window.
-    Click "OK" to close the System Properties window.
+    Right-click on 'This PC' or 'My Computer' and select 'Properties'.
+    Click on 'Advanced system settings'.
+    Click the 'Environment Variables' button.
+    In the 'System variables' section, click 'New...' and enter OPENAI_API_KEY as the variable name and your API key as the variable value.
 
 6.  Run the project: demoPrototype.py and the result shows in outcomes.txt
