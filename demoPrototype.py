@@ -1,13 +1,8 @@
 from openai import OpenAI
 import spacy
 from sentence_transformers import SentenceTransformer, util
+import config
 
-# with open('cold and sick1.txt', 'r', encoding='utf-8') as file:
-#     text = file.read()
-
-
-# with open('cold and sick2.txt', 'r', encoding='utf-8') as file2:
-#     text2 = file2.read()
 
 
 topics = []
@@ -53,12 +48,18 @@ for i in range(len(topics)):
     content2 = paragraphs2[i]
     entities.append((topic, content1, content2))
 
+contentScale = config.CONTENT_SCALE
+numOfSentences = config.NUMBER_OF_SUMMARY_SENTENCES
+wordLimit = config.WORD_LIMIT_FOR_EACH_SENTENCE
+
+
+
 for entity in entities:
     topic = entity[0]
     content1 = entity[1]
     content2 = entity[2]
     
-    with open('outcomes.txt', 'a',encoding='utf-8') as file:
+    with open('outcomes2.txt', 'a',encoding='utf-8') as file:
         file.write('--------------------------------------------------------------\n')
         file.write('Topic: ' + topic + '\n')
         file.write('  \n')
@@ -70,15 +71,15 @@ for entity in entities:
         file.write(content2 + '\n')
         file.write('  \n')
     
-    if len(content1)>1024:
-        content1 = content1[:1024]   
-    if len(content2)>1024:
-        content2 = content2[:1024]    
+    if len(content1)>contentScale:
+        content1 = content1[:contentScale]   
+    if len(content2)>contentScale:
+        content2 = content2[:contentScale]    
     client = OpenAI()
     completion = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "Could you help me summarize this paragraph in 4 short sentences within the word limit of 60"},
+                {"role": "system", "content": "Could you help me summarize this paragraph in " + str(numOfSentences)+ " short sentences within the word limit of "+ str(wordLimit)},
                 {"role": "user", "content": content1},
             ]
         )
@@ -87,7 +88,7 @@ for entity in entities:
     completion2 = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "Could you help me summarize this paragraph in 4 short sentences within the word limit of 60"},
+                {"role": "system", "content": "Could you help me summarize this paragraph in " + str(numOfSentences)+ " short sentences within the word limit of "+ str(wordLimit)},
                 {"role": "user", "content": content2},
             ]
         )
@@ -97,7 +98,7 @@ for entity in entities:
     # print(" ")
     # print(sum2)
     # print(" ")
-    with open('outcomes.txt', 'a',encoding='utf-8') as file:
+    with open('outcomes2.txt', 'a',encoding='utf-8') as file:
         file.write('Their summary produced by ChatGPT are:\n')
         file.write('Summary1:  \n')
         file.write(sum1 + '\n')
@@ -135,7 +136,7 @@ for entity in entities:
 
 
  #   print(matched_sentences_and_scores)
-    with open('outcomes.txt', 'a',encoding='utf-8') as file:
+    with open('outcomes2.txt', 'a',encoding='utf-8') as file:
         file.write('After pairing, we have identified the following pairs:\n')
         for i in range(len(matched_sentences_and_scores)):
             file.write('Pair ' + str(i+1) + ':\n')
@@ -162,7 +163,7 @@ for entity in entities:
         result = completion3.choices[0].message.content
         results.append((sentence1,sentence2,result))
     
-    with open('outcomes.txt', 'a',encoding='utf-8') as file:
+    with open('outcomes2.txt', 'a',encoding='utf-8') as file:
         file.write('The results of the contradiction detection are:\n')
         for i in range(len(results)):
             file.write('Pair ' + str(i+1) + ':')
@@ -172,4 +173,4 @@ for entity in entities:
     # for item in results:
     #     print(item)
     #     print('')
-print('Done, the outcomes.txt shows the results.')
+print('Done, the outcomes2.txt shows the results.')
