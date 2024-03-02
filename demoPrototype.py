@@ -3,8 +3,6 @@ import spacy
 from sentence_transformers import SentenceTransformer, util
 import config
 
-
-
 topics = []
 paragraphs1 = []
 paragraphs2 = []
