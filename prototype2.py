@@ -65,6 +65,33 @@ for entity in entities:
     manualTransformation = entity[3]
 
 
+    with open('outcomes_version2.txt', 'a',encoding='utf-8') as file:
+        file.write('--------------------------------------------------------------\n')
+        file.write('Topic: ' + topic + '\n')
+        file.write('  \n')
+        file.write('Original paragraph  \n')
+        file.write(original + '\n')
+        file.write('  \n')
+        file.write('Paraphrased paragraph  \n')
+        file.write(paraphrase + '\n')
+        file.write('  \n')
+        file.write('Manual transformation  \n')
+        file.write(manualTransformation + '\n')
+        file.write('  \n')
+    
+    print("Topic: ", topic)
+    print("  ")
+    print("Original paragraph  \n")
+    print(original)
+    print("  ")
+    print("Paraphrased paragraph  \n")
+    print(paraphrase)
+    print("  ")
+    print("Manual transformation  \n")  
+    print(manualTransformation)
+    print("  ")
+
+
     client = OpenAI()
     completion = client.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -93,6 +120,29 @@ for entity in entities:
         )
     sum3 = completion2.choices[0].message.content
 
+    with open('outcomes_version2.txt', 'a',encoding='utf-8') as file:
+        file.write('Their summary produced by ChatGPT are:\n')
+        file.write('Summary1 for original content:  \n')
+        file.write(sum1 + '\n')
+        file.write('  \n')
+        file.write('Summary2 for paraphrase content:  \n')
+        file.write(sum2 + '\n')
+        file.write('  \n')
+        file.write('Summary3 for manual transformation:  \n')
+        file.write(sum3 + '\n')
+        file.write('  \n')
+
+    print("Their summary produced by ChatGPT are:\n")
+    print("Summary1 for original content:  \n")
+    print(sum1)
+    print("  ")
+    print("Summary2 for paraphrase content:  \n")
+    print(sum2)
+    print("  ")
+    print("Summary3 for manual transformation:  \n")
+    print(sum3)
+    print("  ")
+
     nlp = spacy.load("en_core_web_sm")
     model = SentenceTransformer('all-MiniLM-L6-v2')
 
@@ -117,6 +167,7 @@ for entity in entities:
         best_score = cosine_scorespp[i][best_match_idx].item()
         matched_pair = (sentences1[i], sentences2[best_match_idx], best_score)
         matched_sentences_and_scores_pp.append(matched_pair)
+    print("results for pp", matched_sentences_and_scores_pp)
 
     cosine_scoresppp = util.pytorch_cos_sim(embeddings1, embeddings3)
     matched_sentences_and_scores_ppp = []
@@ -125,7 +176,12 @@ for entity in entities:
         best_score = cosine_scoresppp[i][best_match_idx].item()
         matched_pair = (sentences1[i], sentences3[best_match_idx], best_score)
         matched_sentences_and_scores_ppp.append(matched_pair)
+    print("results for pppirme", matched_sentences_and_scores_ppp)
 
+    print("After pairing, we have identified the following pairs\n")
+    print("  ")
+    print("For original and paraphrase\n")
+    print("  ")
     resultspp = []
     for pair in matched_sentences_and_scores_pp:
         sentence1 = pair[0]
@@ -141,6 +197,14 @@ for entity in entities:
         result = completion4.choices[0].message.content
         resultspp.append((sentence1,sentence2,result))
 
+        print(sentence1)
+        print(" and ")
+        print(sentence2)
+        print("  : ")
+        print(result)
+        print("  ")
+        
+    print("For original and manual transformation\n")
     resultsppp = []
     for pair in matched_sentences_and_scores_ppp:
         sentence1 = pair[0]
@@ -155,10 +219,39 @@ for entity in entities:
         )
         result = completion5.choices[0].message.content
         resultsppp.append((sentence1,sentence2,result))
+        print(sentence1)
+        print(" and ")
+        print(sentence2)
+        print("  : ")
+        print(result)
+        print("  ")
 
-    print("Topic: ", topic)
-    print("  ")
-    print("results for ppp", resultsppp)
+    with open('outcomes_version2.txt', 'a',encoding='utf-8') as file:
+        file.write('The results of the contradiction detection are:\n')
+        file.write('For original and paraphrase\n')
+        for i in range(len(resultspp)):
+            file.write('Pair ' + str(i+1) + ':')
+            file.write('  \n')
+            file.write(resultspp[i][0] + '\n')
+            file.write("  \n")
+            file.write(resultspp[i][1] + '\n')
+            file.write('  \n')
+            file.write('Result: ' + resultspp[i][2] + '\n')
+            file.write('  \n')
+        file.write('For original and manual transformation\n')
+        for i in range(len(resultsppp)):
+            file.write('Pair ' + str(i+1) + ':')
+            file.write('  \n')
+            file.write(resultsppp[i][0] + '\n')
+            file.write("  \n")
+            file.write(resultsppp[i][1] + '\n')
+            file.write('  \n')
+            file.write('Result: ' + resultsppp[i][2] + '\n')
+            file.write('  \n')
+        file.write('  \n')
+
+print("Done")
+
 
       
 
