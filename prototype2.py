@@ -2,6 +2,7 @@ from openai import OpenAI
 import spacy
 from sentence_transformers import SentenceTransformer, util
 import config
+import pandas as pd
 
 topics = []
 originals = []
@@ -46,6 +47,12 @@ with open('dataOPandM.txt', 'r', encoding='utf-8') as file:
         originals.append(currentOriginal.strip())
         paraphrases.append(currentParaphrase.strip())
         manualTransformations.append(currentManualTransformation.strip())
+
+multi_columns = pd.MultiIndex.from_tuples(
+    [('PP\'', 'contradiction'), ('PP\'', 'not contradiction'), ('PP\'\'', 'contradiction'), ('PP\'\'', 'not conradiction')],
+    names=['Topic', ' ']
+)
+data = []
 
 entities = []
 for i in range(len(topics)):
@@ -182,6 +189,10 @@ for entity in entities:
     print("  ")
     print("For original and paraphrase\n")
     print("  ")
+    ppcontradiction = 0
+    ppnotcontradiction = 0
+    pppcontradiction = 0
+    pppnotcontradiction = 0
     resultspp = []
     for pair in matched_sentences_and_scores_pp:
         sentence1 = pair[0]
@@ -189,13 +200,18 @@ for entity in entities:
         completion4 = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "Could you tell me if these two sentences are contradicting each other."},
+                {"role": "system", "content": "Could you tell me if these two sentences are contradicting each other. If they are contradicting, please say True first, otherwise say False. And then tell me the reason."},
                 {"role": "user", "content": sentence1},
                 {"role": "user", "content": sentence2}
             ]
         )
         result = completion4.choices[0].message.content
         resultspp.append((sentence1,sentence2,result))
+
+        if result.startswith('True'):
+            ppcontradiction  = ppcontradiction+ 1
+        else:
+            ppnotcontradiction = ppnotcontradiction+ 1
 
         print(sentence1)
         print(" and ")
@@ -205,6 +221,7 @@ for entity in entities:
         print("  ")
         
     print("For original and manual transformation\n")
+    print("  ")
     resultsppp = []
     for pair in matched_sentences_and_scores_ppp:
         sentence1 = pair[0]
@@ -212,19 +229,25 @@ for entity in entities:
         completion5 = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "Could you tell me if these two sentences are contradicting each other."},
+                {"role": "system", "content": "Could you tell me if these two sentences are contradicting each other. If they are contradicting, please say True first, otherwise say False. And then tell me the reason."},
                 {"role": "user", "content": sentence1},
                 {"role": "user", "content": sentence2}
             ]
         )
         result = completion5.choices[0].message.content
         resultsppp.append((sentence1,sentence2,result))
+        if result.startswith('True'):
+            pppcontradiction = pppcontradiction+1
+        else:
+            pppnotcontradiction =pppnotcontradiction+ 1
+            
         print(sentence1)
         print(" and ")
         print(sentence2)
         print("  : ")
         print(result)
         print("  ")
+    data.append([ppcontradiction, ppnotcontradiction, pppcontradiction, pppnotcontradiction])
 
     with open('outcomes_version2.txt', 'a',encoding='utf-8') as file:
         file.write('The results of the contradiction detection are:\n')
@@ -249,6 +272,12 @@ for entity in entities:
             file.write('Result: ' + resultsppp[i][2] + '\n')
             file.write('  \n')
         file.write('  \n')
+
+df = pd.DataFrame(data, index=topics, columns=multi_columns)
+print(df)
+print("  ")
+with open('outcomes_version2.txt', 'a',encoding='utf-8') as file:
+    file.write(df.to_string())
 
 print("Done")
 
