@@ -72,7 +72,7 @@ for entity in entities:
     manualTransformation = entity[3]
 
 
-    with open('outcomes_version2.txt', 'a',encoding='utf-8') as file:
+    with open('outcomes_version3.txt', 'a',encoding='utf-8') as file:
         file.write('--------------------------------------------------------------\n')
         file.write('Topic: ' + topic + '\n')
         file.write('  \n')
@@ -127,7 +127,7 @@ for entity in entities:
         )
     sum3 = completion2.choices[0].message.content
 
-    with open('outcomes_version2.txt', 'a',encoding='utf-8') as file:
+    with open('outcomes_version3.txt', 'a',encoding='utf-8') as file:
         file.write('Their summary produced by ChatGPT are:\n')
         file.write('Summary1 for original content:  \n')
         file.write(sum1 + '\n')
@@ -249,7 +249,7 @@ for entity in entities:
         print("  ")
     data.append([ppcontradiction, ppnotcontradiction, pppcontradiction, pppnotcontradiction])
 
-    with open('outcomes_version2.txt', 'a',encoding='utf-8') as file:
+    with open('outcomes_version3.txt', 'a',encoding='utf-8') as file:
         file.write('The results of the contradiction detection are:\n')
         file.write('For original and paraphrase\n')
         for i in range(len(resultspp)):
@@ -276,8 +276,12 @@ for entity in entities:
 df = pd.DataFrame(data, index=topics, columns=multi_columns)
 print(df)
 print("  ")
-with open('outcomes_version2.txt', 'a',encoding='utf-8') as file:
-    file.write(df.to_string())
+# with open('outcomes_version3.txt', 'a',encoding='utf-8') as file:
+#     file.write(df.to_string())
+
+df.to_csv('outcomes_version3.csv')
+
+
 
 print("Done")
 
