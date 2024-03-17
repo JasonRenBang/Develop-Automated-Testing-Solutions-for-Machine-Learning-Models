@@ -7,13 +7,15 @@ import pandas as pd
 topics = []
 originals = []
 paraphrases = []
-manualTransformations = []
+#manualTransformations = []
+transformers = []
 
-with open('dataOPandM.txt', 'r', encoding='utf-8') as file:
+with open('dataOandPMAutomated.txt', 'r', encoding='utf-8') as file:
     currentTopic = ''
     currentOriginal = ''
     currentParaphrase = ''
-    currentManualTransformation = ''
+    #currentManualTransformation = ''
+    currentTransformation = ''
     mode = 'TOPIC' #chase the current data mode: topic, original, paraphrase, manualTransformation
     for line in file:
         line = line.strip()
@@ -22,31 +24,38 @@ with open('dataOPandM.txt', 'r', encoding='utf-8') as file:
                 topics.append(currentTopic)
                 originals.append(currentOriginal)
                 paraphrases.append(currentParaphrase)
-                manualTransformations.append(currentManualTransformation)
+#                manualTransformations.append(currentManualTransformation)
+                transformers.append(currentTransformation)
 
                 currentOriginal = ''
                 currentParaphrase = ''
-                currentManualTransformation = ''
+#                currentManualTransformation = ''
+                currentTransformation = ''
             currentTopic = line[len('Topic: '):]
             mode = 'TOPIC'
         elif line=='Original paragraph':
             mode = 'ORIGINALPARAGRAPH'
         elif line=='Paraphrased paragraph':
             mode = 'PARAPHRASEDPARAGRAPH'
-        elif line=='Manual transformation':
-            mode = 'MANUALTRANSFORMATION'
+        # elif line=='Manual transformation':
+        #     mode = 'MANUALTRANSFORMATION'
+        elif line=='Transformed paragraph':
+            mode = 'TRANSFORMATION'
         else:
             if mode=='ORIGINALPARAGRAPH':
                 currentOriginal += line
             elif mode=='PARAPHRASEDPARAGRAPH':
                 currentParaphrase += line
-            elif mode=='MANUALTRANSFORMATION':
-                currentManualTransformation += line
+            # elif mode=='MANUALTRANSFORMATION':
+            #     currentManualTransformation += line
+            elif mode=='TRANSFORMATION':
+                currentTransformation += line
     if currentTopic !='':
         topics.append(currentTopic)
         originals.append(currentOriginal.strip())
         paraphrases.append(currentParaphrase.strip())
-        manualTransformations.append(currentManualTransformation.strip())
+#        manualTransformations.append(currentManualTransformation.strip())
+        transformers.append(currentTransformation.strip())
 
 multi_columns = pd.MultiIndex.from_tuples(
     [('PP\'', 'contradiction'), ('PP\'', 'not contradiction'), ('PP\'\'', 'contradiction'), ('PP\'\'', 'not conradiction')],
@@ -59,7 +68,8 @@ for i in range(len(topics)):
     topic = topics[i]
     content1 = originals[i]
     content2 = paraphrases[i]
-    content3 = manualTransformations[i]
+    # content3 = manualTransformations[i]
+    content3 = transformers[i]
     entities.append((topic, content1, content2, content3))
 
 numOfSentences = config.NUMBER_OF_SUMMARY_SENTENCES
@@ -69,10 +79,10 @@ for entity in entities:
     topic = entity[0]
     original = entity[1]
     paraphrase = entity[2]
-    manualTransformation = entity[3]
+#    manualTransformation = entity[3]
+    transformers = entity[3]
 
-
-    with open('outcomes_version3.txt', 'a',encoding='utf-8') as file:
+    with open('automated_outcomes_version.txt', 'a',encoding='utf-8') as file:
         file.write('--------------------------------------------------------------\n')
         file.write('Topic: ' + topic + '\n')
         file.write('  \n')
@@ -82,8 +92,10 @@ for entity in entities:
         file.write('Paraphrased paragraph  \n')
         file.write(paraphrase + '\n')
         file.write('  \n')
-        file.write('Manual transformation  \n')
-        file.write(manualTransformation + '\n')
+        # file.write('Manual transformation  \n')
+        # file.write(manualTransformation + '\n')
+        file.write('Transformation Paragraph  \n')
+        file.write(transformers + '\n')
         file.write('  \n')
     
     print("Topic: ", topic)
@@ -94,8 +106,10 @@ for entity in entities:
     print("Paraphrased paragraph  \n")
     print(paraphrase)
     print("  ")
-    print("Manual transformation  \n")  
-    print(manualTransformation)
+    # print("Manual transformation  \n")  
+    # print(manualTransformation)
+    print("Transformation Paragraph  \n")
+    print(transformers)
     print("  ")
 
 
@@ -122,12 +136,13 @@ for entity in entities:
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "Could you help me summarize this paragraph in " + str(numOfSentences)+ " short sentences within the word limit of "+ str(wordLimit)},
-                {"role": "user", "content": manualTransformation},
+                # {"role": "user", "content": manualTransformation},
+                {"role": "user", "content": transformers},
             ]
         )
     sum3 = completion2.choices[0].message.content
 
-    with open('outcomes_version3.txt', 'a',encoding='utf-8') as file:
+    with open('automated_outcomes_version.txt', 'a',encoding='utf-8') as file:
         file.write('Their summary produced by ChatGPT are:\n')
         file.write('Summary1 for original content:  \n')
         file.write(sum1 + '\n')
@@ -135,7 +150,9 @@ for entity in entities:
         file.write('Summary2 for paraphrase content:  \n')
         file.write(sum2 + '\n')
         file.write('  \n')
-        file.write('Summary3 for manual transformation:  \n')
+        # file.write('Summary3 for manual transformation:  \n')
+        # file.write(sum3 + '\n')
+        file.write('Summary3 for transformation:  \n')
         file.write(sum3 + '\n')
         file.write('  \n')
 
@@ -146,7 +163,9 @@ for entity in entities:
     print("Summary2 for paraphrase content:  \n")
     print(sum2)
     print("  ")
-    print("Summary3 for manual transformation:  \n")
+    # print("Summary3 for manual transformation:  \n")
+    # print(sum3)
+    print("Summary3 for transformation:  \n")
     print(sum3)
     print("  ")
 
@@ -220,7 +239,8 @@ for entity in entities:
         print(result)
         print("  ")
         
-    print("For original and manual transformation\n")
+    # print("For original and manual transformation\n")
+    print("For original and transformation\n")
     print("  ")
     resultsppp = []
     for pair in matched_sentences_and_scores_ppp:
@@ -249,7 +269,7 @@ for entity in entities:
         print("  ")
     data.append([ppcontradiction, ppnotcontradiction, pppcontradiction, pppnotcontradiction])
 
-    with open('outcomes_version3.txt', 'a',encoding='utf-8') as file:
+    with open('automated_outcomes_version.txt', 'a',encoding='utf-8') as file:
         file.write('The results of the contradiction detection are:\n')
         file.write('For original and paraphrase\n')
         for i in range(len(resultspp)):
@@ -261,7 +281,8 @@ for entity in entities:
             file.write('  \n')
             file.write('Result: ' + resultspp[i][2] + '\n')
             file.write('  \n')
-        file.write('For original and manual transformation\n')
+        # file.write('For original and manual transformation\n')
+        file.write('For original and transformation\n')
         for i in range(len(resultsppp)):
             file.write('Pair ' + str(i+1) + ':')
             file.write('  \n')
@@ -279,7 +300,7 @@ print("  ")
 # with open('outcomes_version3.txt', 'a',encoding='utf-8') as file:
 #     file.write(df.to_string())
 
-df.to_csv('outcomes_version3.csv')
+df.to_csv('automated_outcomes_version.csv')
 
 
 

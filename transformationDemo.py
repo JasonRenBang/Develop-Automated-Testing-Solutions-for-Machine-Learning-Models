@@ -1,8 +1,5 @@
-from openai import OpenAI
 import spacy
-from sentence_transformers import SentenceTransformer, util
 import config
-
 import random
 from random import choice
 from random import randint
@@ -11,11 +8,9 @@ from spacy.matcher import PhraseMatcher
 from spacy.tokens import Token
 import nltk
 from nltk.corpus import wordnet as wn
-import transformationDemo
+from openai import OpenAI
 
 
-
-#method: need to encapsulate into a class
 def analyze_sentence(content):
   listOfPos = []
   listOfTags = []
@@ -175,81 +170,48 @@ def generate_check(content):
   return result
 
 
-
-
-
-topics = []
-contents = []
-
-with open('paragraphysData2.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-    i = 0
-    while i < len(lines):
-        if lines[i].startswith('Topic:'):
-            topic = lines[i].split(':')[1].strip()
-            i += 1
-            content = ""
-            while i < len(lines) and not lines[i].startswith('Topic:'):
-                content += lines[i].strip() + " "
-                i += 1
-            topics.append(topic)
-            contents.append(content.strip())
-
-
-print("Topics:", topics)
-# print("Contents:", contents)
-
-paraphrases = []
-
-for content in contents:
-    client = OpenAI()
-    completion = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "Could you help me paraphrase this paragraph with the same number of sentences"},
-                {"role": "user", "content": content},
-            ]
-        )
-    paraphrase = completion.choices[0].message.content
-    paraphrases.append(paraphrase)
-    print(content)
-    print(" ")
-    print("Paraphrase version: ",paraphrase)
-    print(" ")
-
-transformations = [ ]
+content = "The city recorded its rainiest day ever on Monday, and it wasn't better news for the rest of California either. A state of emergency was declared and evacuation orders were issued. Mudslides hit neighbourhoods, drivers were stranded, and half a million residents lost power. About 37 million residents, or 94% of the state's population, are under flood alerts. The already-deadly storm is caused by an atmospheric river, a corridor of water vapour in Earth's lower atmosphere which is carried along by the wind, forming long currents – a kind of sky river. The consequences can be dramatic. The precipitation that falls is comparable to the rain brought by hurricanes making landfall on the Gulf Coast. Climate change is increasing the risk of a California megaflood, Swain's study warns. This extreme storm scenario would produce runoffs 200-400% greater than anything seen before in the Sierra Nevada, the sprawling 400-mile (650km) mountain range that traverses 24 of the 58 counties in California. The last such megaflood happened in 1861, inundating a 300 mile-long (483km) stretch of the Central Valley and large portions of modern-day Los Angeles with water. It could happen again, any time. And, the extremity of such a flood is increased by around 10% per 1C of global warming, because the warmer the planet the more capacity the atmosphere has to hold water vapour."
 nltk.download('wordnet')
 nlp = spacy.load("en_core_web_sm")
-for content in contents:
-    content = generate_random_citiesAndCountries(content)
-    content = generate_random_weekdays(content)
-    content = generate_random_date(content)
-    content = generate_random_numbers(content)
-    content = generate_random_quantifiers(content)
-    content = generate_antonyms(content)
-    content = generate_NONE_NEGATIVE_words(content)
-    content = generate_word_delete(content)
-    content = generate_word_swap(content)
-    content = generate_check(content)
-    print("Transformed version: ",content)
-    print(" ")
-    transformations.append(content)
 
 
-
-for i in range(len(topics)):
-    with open('dataOandPMAutomated.txt', 'a',encoding='utf-8') as file:
-        file.write('Topic: ' + topics[i] + '\n')
-        file.write('  \n')
-        file.write('Original paragraph  \n')
-        file.write(contents[i] + '\n')
-        file.write('  \n')
-        file.write('Paraphrased paragraph  \n')
-        file.write(paraphrases[i]+ '\n')
-        file.write('  \n')
-        file.write('Transformed paragraph  \n')
-        file.write(transformations[i]+ '\n')
-        file.write('  \n')
-
-
+newContent = generate_random_citiesAndCountries(content)
+# print(" ")
+# print("New Content: ", newContent)
+# print(" ")
+newContent = generate_random_weekdays(newContent)
+# print(" ")
+# print("New Content: ", newContent)
+# print(" ")
+newContent = generate_random_date(newContent)
+# print(" ")
+# print("New Content: ", newContent)
+# print(" ")
+newContent = generate_random_numbers(newContent)
+# print(" ")
+# print("New Content: ", newContent)
+# print(" ")
+newContent = generate_random_quantifiers(newContent)
+# print(" ")
+# print("New Content: ", newContent)
+# print(" ")
+newContent = generate_antonyms(newContent)
+# print(" ")
+# print("New Content: ", newContent)
+# print(" ")
+newContent = generate_NONE_NEGATIVE_words(newContent)
+# print(" ")
+# print("New Content: ", newContent)
+# print(" ")
+newContent = generate_word_delete(newContent)
+# print(" ")
+# print("New Content: ", newContent)
+# print(" ")
+newContent = generate_word_swap(newContent)
+# print(" ")
+# print("New Content: ", newContent)
+# print(" ")
+newContent = generate_check(newContent)
+# print(" ")
+#print("New Content: ", newContent)
 
