@@ -131,7 +131,7 @@ def generate_word_delete(content):
   to_delete = []
   for token in doc:
     if token.dep_ in ["amod", "nummod", "advmod", "nmod", "npadvmod", "relcl", "acl", "prep"]:
-        if random.random() < 0.5:  # 调整这个概率以满足你的需求
+        if random.random() < 0.5:  
             subtree_indices = [t.i for t in token.subtree]
             to_delete.extend(subtree_indices)
   Token.set_extension("keep", default=True, force=True)
@@ -170,48 +170,48 @@ def generate_check(content):
   return result
 
 
-content = "The city recorded its rainiest day ever on Monday, and it wasn't better news for the rest of California either. A state of emergency was declared and evacuation orders were issued. Mudslides hit neighbourhoods, drivers were stranded, and half a million residents lost power. About 37 million residents, or 94% of the state's population, are under flood alerts. The already-deadly storm is caused by an atmospheric river, a corridor of water vapour in Earth's lower atmosphere which is carried along by the wind, forming long currents – a kind of sky river. The consequences can be dramatic. The precipitation that falls is comparable to the rain brought by hurricanes making landfall on the Gulf Coast. Climate change is increasing the risk of a California megaflood, Swain's study warns. This extreme storm scenario would produce runoffs 200-400% greater than anything seen before in the Sierra Nevada, the sprawling 400-mile (650km) mountain range that traverses 24 of the 58 counties in California. The last such megaflood happened in 1861, inundating a 300 mile-long (483km) stretch of the Central Valley and large portions of modern-day Los Angeles with water. It could happen again, any time. And, the extremity of such a flood is increased by around 10% per 1C of global warming, because the warmer the planet the more capacity the atmosphere has to hold water vapour."
+# content = "The city recorded its rainiest day ever on Monday, and it wasn't better news for the rest of California either. A state of emergency was declared and evacuation orders were issued. Mudslides hit neighbourhoods, drivers were stranded, and half a million residents lost power. About 37 million residents, or 94% of the state's population, are under flood alerts. The already-deadly storm is caused by an atmospheric river, a corridor of water vapour in Earth's lower atmosphere which is carried along by the wind, forming long currents – a kind of sky river. The consequences can be dramatic. The precipitation that falls is comparable to the rain brought by hurricanes making landfall on the Gulf Coast. Climate change is increasing the risk of a California megaflood, Swain's study warns. This extreme storm scenario would produce runoffs 200-400% greater than anything seen before in the Sierra Nevada, the sprawling 400-mile (650km) mountain range that traverses 24 of the 58 counties in California. The last such megaflood happened in 1861, inundating a 300 mile-long (483km) stretch of the Central Valley and large portions of modern-day Los Angeles with water. It could happen again, any time. And, the extremity of such a flood is increased by around 10% per 1C of global warming, because the warmer the planet the more capacity the atmosphere has to hold water vapour."
 nltk.download('wordnet')
 nlp = spacy.load("en_core_web_sm")
 
 
-newContent = generate_random_citiesAndCountries(content)
+# newContent = generate_random_citiesAndCountries(content)
 # print(" ")
 # print("New Content: ", newContent)
 # print(" ")
-newContent = generate_random_weekdays(newContent)
+# newContent = generate_random_weekdays(newContent)
 # print(" ")
 # print("New Content: ", newContent)
 # print(" ")
-newContent = generate_random_date(newContent)
+# newContent = generate_random_date(newContent)
 # print(" ")
 # print("New Content: ", newContent)
 # print(" ")
-newContent = generate_random_numbers(newContent)
+# newContent = generate_random_numbers(newContent)
 # print(" ")
 # print("New Content: ", newContent)
 # print(" ")
-newContent = generate_random_quantifiers(newContent)
+# newContent = generate_random_quantifiers(newContent)
 # print(" ")
 # print("New Content: ", newContent)
 # print(" ")
-newContent = generate_antonyms(newContent)
+# newContent = generate_antonyms(newContent)
 # print(" ")
 # print("New Content: ", newContent)
 # print(" ")
-newContent = generate_NONE_NEGATIVE_words(newContent)
+# newContent = generate_NONE_NEGATIVE_words(newContent)
 # print(" ")
 # print("New Content: ", newContent)
 # print(" ")
-newContent = generate_word_delete(newContent)
+# newContent = generate_word_delete(newContent)
 # print(" ")
 # print("New Content: ", newContent)
 # print(" ")
-newContent = generate_word_swap(newContent)
+# newContent = generate_word_swap(newContent)
 # print(" ")
 # print("New Content: ", newContent)
 # print(" ")
-newContent = generate_check(newContent)
+# newContent = generate_check(newContent)
 # print(" ")
-#print("New Content: ", newContent)
+# print("New Content: ", newContent)
 
