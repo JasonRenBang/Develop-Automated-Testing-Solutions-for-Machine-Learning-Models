@@ -1,5 +1,6 @@
 import dataPrepare
 import prototype2
+import analysisSQuAD
 
 def main1paragraphDataPrepare():
   fileName = 'paragraphysData2.txt'
@@ -57,5 +58,32 @@ def main4questionResult():
   entities = prototype2.analyze_questions(fileName)
   prototype2.get_QAResult(entities)
 
+
+def main5getQuestionsData():
+  fileName = 'questions.json'
+  questions, answersOpenAI, answersGemini = analysisSQuAD.loadQuestionsAndAnswers(fileName)
+
+
+  for i in range(len(questions)):
+    with open('dataOiginal.txt', 'a',encoding='utf-8') as file:
+        file.write('Question: ' + str(i+1) + '\n')
+        file.write('  \n')
+        file.write('Original question  \n')
+        file.write(questions[i] + '\n')
+        file.write('  \n')
+        file.write('Get Answer from OpenAI  \n')
+        file.write(answersOpenAI[i]+ '\n')
+        file.write('  \n')
+        file.write('Get Answer from Gemini  \n')
+        file.write(answersGemini[i]+ '\n')
+        file.write('  \n')
+
+
+def main6getQuestionsAnalysis():
+  fileName = 'dataOiginal.txt'
+  entities = prototype2.analyze_questions(fileName)
+  prototype2.get_QAResult(entities)
+
+
 if __name__=="__main__":
-  main4questionResult()
+   main6getQuestionsAnalysis()

@@ -1,9 +1,10 @@
 import json
 from openai import OpenAI
+import getAnswers
 
-def readQuestionsData(fileName):
+def getQuestionsData(fileName):
     dataOriginal ={}
-    with open(fileName) as f:
+    with open("questions.json") as f:
         dataOriginal = json.load(f)
 
     dataParagraphs = []
@@ -18,6 +19,7 @@ def readQuestionsData(fileName):
                 questions.append(question['question'])
 
     questions = questions[:10]
+    return questions
 
 
 
@@ -36,18 +38,23 @@ def readQuestionsData(fileName):
     # answersFromOrigianl = answersFromOrigianl[:100]
 
 
-    answers = []
+    # answers = []
 
-    client = OpenAI()
-    for question in questions:
-        completion = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "Give the question's answer."},
-                {"role": "user", "content": question},
-            ]
-        )
-        answers.append(completion.choices[0].message.content)
-    return questions, answers, 
+    # client = OpenAI()
+    # for question in questions:
+    #     completion = client.chat.completions.create(
+    #         model="gpt-3.5-turbo",
+    #         messages=[
+    #             {"role": "system", "content": "Give the question's answer."},
+    #             {"role": "user", "content": question},
+    #         ]
+    #     )
+    #     answers.append(completion.choices[0].message.content)
+    # return questions, answers, 
 
+def loadQuestionsAndAnswers(fileName):
+    questions = getQuestionsData(fileName)
+    answersOpenAI = getAnswers.getAnswersFromOpenAI(questions)
+    answersGemini = getAnswers.getAnswersFromGemini(questions)
 
+    return questions, answersOpenAI, answersGemini

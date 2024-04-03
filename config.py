@@ -33,3 +33,7 @@ STATES =  [
 ]
 QUANTIFIERS = ["few", "several", "many", "some", "a couple of", "a few", "a lot of", "a number of", "a handful of", "a great deal of", "a large number of", "a majority of", "a minority of"]
 NEGATIVE_WORDS = ["not", "n't", "never"]
+
+GOOGLE_API_KEY = "AIzaSyCsCpibzaNeXTcR6Q3SgP6piSZVmAaW330"
+
+MIN_SENTENCE_LENGTH = 3

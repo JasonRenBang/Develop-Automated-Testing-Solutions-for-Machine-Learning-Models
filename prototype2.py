@@ -5,6 +5,14 @@ import config
 import pandas as pd
 
 
+
+# def is_meaningful_sentence(sentence):
+#     nlp = spacy.load("en_core_web_sm")
+#     doc = nlp(sentence)
+#     return any(token.dep_ == 'ROOT' for token in doc)
+
+
+
 def analyze_paragraphs(fileName):
 
     topics = []
@@ -77,85 +85,58 @@ def analyze_paragraphs(fileName):
 def analyze_questions(fileName):
     questionIndexs = []
     questions = []
-    answers = []
-    questionsP = []
-    answersP = []
-    questionsT = []
-    answersT = []
+    answersOpenAI = []
+    answersGemini = []
 
     with open(fileName, 'r', encoding='utf-8') as file:
         currentquestionIndex = ''
         currentQuestion = ''
-        currentAnswer = ''
-        currentQuestionP = ''
-        currentAnswerP = ''
-        currentQuestionT = ''
-        currentAnswerT = ''
-        mode = 'QUESTION' #chase the current data mode: question, answer, questionP, answerP, questionT, answerT
+        currentAnswerOpenAI = ''
+        currentAnswerGemini = ''
+
+        mode = 'QUESTION' #chase the current data mode: question, answerOpenAI, answerGemini
         for line in file:
             line = line.strip()
             if line.startswith('Question:'):
                 if currentquestionIndex !='':
                     questionIndexs.append(currentquestionIndex)
                     questions.append(currentQuestion)
-                    answers.append(currentAnswer)
-                    questionsP.append(currentQuestionP)
-                    answersP.append(currentAnswerP)
-                    questionsT.append(currentQuestionT)
-                    answersT.append(currentAnswerT)
+                    answersOpenAI.append(currentAnswerOpenAI)
+                    answersGemini.append(currentAnswerGemini)
 
                     currentQuestion = ''
-                    currentAnswer = ''
-                    currentQuestionP = ''
-                    currentAnswerP = ''
-                    currentQuestionT = ''
-                    currentAnswerT = ''
+                    currentAnswerOpenAI = ''    
+                    currentAnswerGemini = ''
                 currentquestionIndex = line[len('Question: '):]
                 mode = 'QUESTION'
             elif line=='Original question':
                 mode = 'ORIGINALQUESTION'
-            elif line=='Paraphrased question':
-                mode = 'PARAPHRASEDQUESTION'
-            elif line=='Transformed question':
-                mode = 'TRANSFORMEDQUESTION'
-            elif line=='Original question answer':
-                mode = 'ORIGINALANSWER'
-            elif line=='Paraphrased question answer':
-                mode = 'PARAPHRASEDANSWER'
-            elif line=='Transformed question answer':
-                mode = 'TRANSFORMEDANSWER'
+            elif line=='Get Answer from OpenAI':
+                mode = 'ANSWEROPENAI'
+            elif line=='Get Answer from Gemini':
+                mode = 'ANSWERGEMINI'
             else:
                 if mode=='ORIGINALQUESTION':
                     currentQuestion += line
-                elif mode=='PARAPHRASEDQUESTION':
-                    currentQuestionP += line
-                elif mode=='TRANSFORMEDQUESTION':
-                    currentQuestionT += line
-                elif mode=='ORIGINALANSWER':
-                    currentAnswer += line
-                elif mode=='PARAPHRASEDANSWER':
-                    currentAnswerP += line
-                elif mode=='TRANSFORMEDANSWER':
-                    currentAnswerT += line
+                elif mode=='ANSWEROPENAI':
+                    currentAnswerOpenAI += line
+                elif mode=='ANSWERGEMINI':
+                    currentAnswerGemini += line
+
         if currentQuestion !='':
             questionIndexs.append(currentquestionIndex)
             questions.append(currentQuestion)
-            answers.append(currentAnswer)
-            questionsP.append(currentQuestionP)
-            answersP.append(currentAnswerP)
-            questionsT.append(currentQuestionT)
-            answersT.append(currentAnswerT)
+            answersOpenAI.append(currentAnswerOpenAI)   
+            answersGemini.append(currentAnswerGemini)
+
     
     entities = []   
     for i in range(len(questionIndexs)):
         questionIndex = questionIndexs[i]
         question = questions[i]
-        answer = answers[i]
-        questionP = questionsP[i]
-        answerP = answersP[i]
-        questionT = questionsT[i]
-        answerT = answersT[i]
-        entities.append((questionIndex, question, answer, questionP, answerP, questionT, answerT))
+        answerOpenAI = answersOpenAI[i]
+        answerGemini = answersGemini[i]
+        entities.append((questionIndex, question, answerOpenAI, answerGemini))
     return entities
 
 def get_results(entities):
@@ -403,46 +384,36 @@ def get_results(entities):
 
 
 def get_QAResult(entities):
+
+
     multi_columns = pd.MultiIndex.from_tuples(
-        [('PP\'', 'contradiction'), ('PP\'', 'not contradiction'), ('PP\'\'', 'contradiction'), ('PP\'\'', 'not conradiction')],
+        [('OpenAI vs Gemini\'', 'contradiction'), ('OpenAI vs Gemini', 'not contradiction')],
         names=['Question', ' ']
     )
     data = []
-    # numOfSentences = config.NUMBER_OF_SUMMARY_SENTENCES
-    # wordLimit = config.WORD_LIMIT_FOR_EACH_SENTENCE
+    numOfSentences = config.NUMBER_OF_SUMMARY_SENTENCES
+    wordLimit = config.WORD_LIMIT_FOR_EACH_SENTENCE
     questionIndexs = []
     
     for entity in entities:
         questionIndex = entity[0]
         questionIndexs.append(questionIndex)
         question = entity[1]
-        answer = entity[2]
-        questionP = entity[3]
-        answerP = entity[4]
-        questionT = entity[5]
-        answerT = entity[6]
+        answerOpenAI = entity[2]
+        answerGemini = entity[3]
 
-        with open('automated_outcomes_versionQA.txt', 'a',encoding='utf-8') as file:
+        with open('QA_outcomes.txt', 'a',encoding='utf-8') as file:
             file.write('--------------------------------------------------------------\n')
             file.write('Question Index: ' + questionIndex + '\n')
             file.write('  \n')
             file.write('Original question  \n')
             file.write(question + '\n')
             file.write('  \n')
-            file.write('Paraphrased question  \n')
-            file.write(questionP + '\n')
+            file.write('Get Answer from OpenAI  \n')
+            file.write(answerOpenAI + '\n')
             file.write('  \n')
-            file.write('Transformed question  \n')
-            file.write(questionT + '\n')
-            file.write('  \n')
-            file.write('Original question answer  \n')
-            file.write(answer + '\n')
-            file.write('  \n')
-            file.write('Paraphrased question answer  \n')
-            file.write(answerP + '\n')
-            file.write('  \n')
-            file.write('Transformed question answer  \n')
-            file.write(answerT + '\n')
+            file.write('Get Answer from Gemini  \n')
+            file.write(answerGemini + '\n')
             file.write('  \n')
 
         print("Question Index: ", questionIndex)
@@ -450,153 +421,130 @@ def get_QAResult(entities):
         print("Original question  \n")
         print(question)
         print("  ")
-        print("Paraphrased question  \n")
-        print(questionP)
+        print("Get Answer from OpenAI  \n")
+        print(answerOpenAI)
         print("  ")
-        print("Transformed question  \n")
-        print(questionT)
-        print("  ")
-        print("Original question answer  \n")
-        print(answer)
-        print("  ")
-        print("Paraphrased question answer  \n")
-        print(answerP)
-        print(" ")
-        print("Transformed question answer  \n")
-        print(answerT)
+        print("Get Answer from Gemini  \n")
+        print(answerGemini)
         print("  ")
 
         client = OpenAI()
         completion = client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "Could you help me summarize it in one sentence with 60 word limit"},
-                    {"role": "user", "content": answer},
-                ]
-            )
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "Could you help me summarize this paragraph in " + str(numOfSentences)+ " short sentences within the word limit of "+ str(wordLimit)+ " words"},
+                {"role": "user", "content": answerOpenAI},
+            ]
+        )
         sum1 = completion.choices[0].message.content
 
         completion2 = client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "Could you help me summarize it in one sentence with 60 word limit"},
-                    {"role": "user", "content": answerP},
-                ]
-            )
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "Could you help me summarize this paragraph in " + str(numOfSentences)+ " short sentences within the word limit of "+ str(wordLimit)+ " words"},
+                {"role": "user", "content": answerGemini},
+            ]
+        )
         sum2 = completion2.choices[0].message.content
-        
-        completion3 = client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=[
-                    {"role": "system", "content": "Could you help me summarize it in one sentence with 60 word limit"},
-                    {"role": "user", "content": answerT},
-                ]
-            )
-        sum3 = completion3.choices[0].message.content
-
-        with open('automated_outcomes_versionQA.txt', 'a',encoding='utf-8') as file:
+        with open('QA_outcomes.txt', 'a',encoding='utf-8') as file:
             file.write('Their summary produced by ChatGPT are:\n')
-            file.write('Summary1 for original content:  \n')
+            file.write('Summary1 for OpenAI answer:  \n')
             file.write(sum1 + '\n')
             file.write('  \n')
-            file.write('Summary2 for paraphrase content:  \n')
+            file.write('Summary2 for Gemini answer:  \n')
             file.write(sum2 + '\n')
             file.write('  \n')
-            file.write('Summary3 for transformation:  \n')
-            file.write(sum3 + '\n')
-            file.write('  \n')
-        
         print("Their summary produced by ChatGPT are:\n")
-        print("Summary1 for original content:  \n")
+        print("Summary1 for OpenAI answer:  \n")
         print(sum1)
         print("  ")
-        print("Summary2 for paraphrase content:  \n")
+        print("Summary2 for Gemini answer:  \n")
         print(sum2)
         print("  ")
-        print("Summary3 for transformation:  \n")
-        print(sum3)
-        print("  ")
 
-        ppcontradiction = 0
-        ppnotcontradiction = 0
-        pppcontradiction = 0
-        pppnotcontradiction = 0
+        min_length = config.MIN_SENTENCE_LENGTH
+        nlp = spacy.load("en_core_web_sm")
+        model = SentenceTransformer('all-MiniLM-L6-v2')
 
-        completion4 = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "Could you tell me if these two answers are contradicting each other. If they are contradicting, please say True first, otherwise say False. And then tell me the reason."},
-                {"role": "user", "content": answer},
-                {"role": "user", "content": answerP}
-            ]
-        )
-        result = completion4.choices[0].message.content
-        if result.startswith('True'):
-            ppcontradiction = ppcontradiction + 1
-        else:
-            ppnotcontradiction = ppnotcontradiction + 1
+        L1= nlp(sum1)
         
-        with open('automated_outcomes_versionQA.txt', 'a',encoding='utf-8') as file:
+        sentences1 = [sent.text for sent in L1.sents]
+        print(len(sentences1))
+
+        sentences1 = [sent for sent in sentences1 if len(sent.split()) > min_length]
+ #       sentences1 = [sent for sent in sentences1 if is_meaningful_sentence(sent)]
+        print("sentences1", sentences1)
+        print(len(sentences1))
+
+
+        L2= nlp(sum2)
+        sentences2 = [sent.text for sent in L2.sents]
+        sentences2 = [sent for sent in sentences2 if len(sent.split()) > min_length]
+ #       sentences2 = [sent for sent in sentences2 if is_meaningful_sentence(sent)]
+        print("sentences2", sentences2)
+        print(len(sentences2))
+
+        embeddings1 = model.encode(sentences1, convert_to_tensor=True)
+        embeddings2 = model.encode(sentences2, convert_to_tensor=True)
+
+        cosine_scores = util.pytorch_cos_sim(embeddings1, embeddings2)
+        matched_sentences_and_scores = []
+        for i in range(len(sentences1)):
+            best_match_idx  = cosine_scores[i].argmax().item()
+            best_score = cosine_scores[i][best_match_idx].item()
+            matched_pair = (sentences1[i], sentences2[best_match_idx], best_score)
+            matched_sentences_and_scores.append(matched_pair)
+        print("results for OpenAI and Gemini", matched_sentences_and_scores)
+        print(" ")
+        print("After pairing, we have identified the following pairs\n")
+        print("  ")
+
+        contradiction = 0
+        notcontradiction = 0
+
+        resultspp = []
+        for pair in matched_sentences_and_scores:
+            sentence1 = pair[0]
+            sentence2 = pair[1]
+            completion3 = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "Could you tell me if these two sentences are contradicting each other. If they are contradicting, please say True first, otherwise say False. And then tell me the reason."},
+                    {"role": "user", "content": sentence1},
+                    {"role": "user", "content": sentence2}
+                ]
+            )
+            result = completion3.choices[0].message.content
+            resultspp.append((sentence1,sentence2,result))
+
+            if result.startswith('True'):
+                contradiction  = contradiction+ 1
+            else:
+                notcontradiction = notcontradiction+ 1
+
+            print(sentence1)
+            print(" and ")
+            print(sentence2)
+            print("  : ")
+            print(result)
+            print("  ")
+        data.append([contradiction, notcontradiction])
+
+        with open('QA_outcomes.txt', 'a',encoding='utf-8') as file:
             file.write('The results of the contradiction detection are:\n')
-            file.write('For original and paraphrase\n')
-            file.write('Result: ' + result + '\n')
+            file.write('For OpenAI and Gemini\n')
+            for i in range(len(resultspp)):
+                file.write('Pair ' + str(i+1) + ':')
+                file.write('  \n')
+                file.write(resultspp[i][0] + '\n')
+                file.write("  \n")
+                file.write(resultspp[i][1] + '\n')
+                file.write('  \n')
+                file.write('Result: ' + resultspp[i][2] + '\n')
+                file.write('  \n')
             file.write('  \n')
-        print('The results of the contradiction detection are:\n')
-        print("For the answer of original question and paraphrase question: \n")
-        print("  ")
-        print(result)
-        print("  ")
-
-        completion5 = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "Could you tell me if these two answers are contradicting each other. If they are contradicting, please say True first, otherwise say False. And then tell me the reason."},
-                {"role": "user", "content": answer},
-                {"role": "user", "content": answerT}
-            ]
-        )
-        result = completion5.choices[0].message.content
-        if result.startswith('True'):
-            pppcontradiction = pppcontradiction + 1
-        else:
-            pppnotcontradiction = pppnotcontradiction + 1
-        with open('automated_outcomes_versionQA.txt', 'a',encoding='utf-8') as file:
-            file.write('For original and transformation\n')
-            file.write('Result: ' + result + '\n')
-            file.write('  \n')
-        print("For the answer of original question and paraphrase question: \n")
-        print("  ")
-        print(result)
-        print("  ")
-        data.append([ppcontradiction, ppnotcontradiction, pppcontradiction, pppnotcontradiction])
-
-
     df = pd.DataFrame(data, index=questionIndexs, columns=multi_columns)
     print(df)
     print("  ")
-    # with open('outcomes_version3.txt', 'a',encoding='utf-8') as file:
-    #     file.write(df.to_string())
-
-    df.to_csv('QAautomated_outcomes_version.csv')
-
+    df.to_csv('QA_outcomes.csv')
     print("Done")
-
-
-
-
-
-        
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
