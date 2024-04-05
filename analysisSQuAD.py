@@ -18,7 +18,8 @@ def getQuestionsData(fileName):
             for question in i['qas']:
                 questions.append(question['question'])
 
-    questions = questions[:10]
+    questions = questions[:1000]
+    print("Get Question done: ", len(questions))
     return questions
 
 
