@@ -1,5 +1,5 @@
 import json
-from openai import OpenAI
+
 import getAnswers
 
 def getQuestionsData(fileName):
@@ -78,5 +78,24 @@ for item in dataOriginal['data']:
             questionsList.append(q)
         datapackage['questions'] = questionsList
         datapackages.append(datapackage)
-print(len(datapackages))
+datapackages = datapackages[:1]
+print(datapackages)
+# questions, answersChatGPT, messageslog  = getAnswers.getAnswersFromOpenAI3(datapackages)
+# print(len(questions))
+# print(len(answersChatGPT))
+# print(len(messageslog))
+
+# for answer in answersChatGPT:
+#     print(answer)
+
+questions, answerGemini, history = getAnswers.getAnswersFromGemini2(datapackages)
+print(len(questions))
+print(len(answerGemini))
+print(len(history))
+for answer in answerGemini:
+    print(answer)
+
+
+for log in history:
+    print(log)  
 
