@@ -59,3 +59,24 @@ def loadQuestionsAndAnswers(fileName):
     answersGemini = getAnswers.getAnswersFromGemini(questions)
 
     return questions, answersOpenAI, answersGemini
+
+
+
+dataOriginal ={}
+datapackages = []
+with open("dev-v1.1.json") as f:
+    dataOriginal = json.load(f)
+for item in dataOriginal['data']:
+
+    for i in item['paragraphs']:
+        datapackage = {}
+        paragraph = i['context']
+        datapackage['context'] = paragraph
+        questionsList = []
+        for question in i['qas']:
+            q = question['question']
+            questionsList.append(q)
+        datapackage['questions'] = questionsList
+        datapackages.append(datapackage)
+print(len(datapackages))
+

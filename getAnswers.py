@@ -19,6 +19,50 @@ def getAnswersFromOpenAI(questions):
     print("Get Answers done: ", len(answersChatGPT))
     return answersChatGPT
 
+def getAnswersFromOpenAI2(contexts, questions):
+    answersChatGPT = []
+    client = OpenAI()
+    messageslog = []
+    messageslog.append({"role": "user", "content": "You are fed many paragraphs before you answer the questions."})
+    completion = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=messageslog,
+    )
+    responses = completion.choices[0].message.content
+    messageslog.append({"role": "assistant", "content": responses})
+    for context in contexts:
+        messageslog.append({"role": "user", "content": context})
+        completion = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=messageslog,
+        )
+        responses = completion.choices[0].message.content
+        messageslog.append({"role": "assistant", "content": responses})
+    messageslog.append({"role": "user", "content": "All the contexts are fed. Now, you are fed the questions.Give the question's answer in a paragraph."})
+    completion = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=messageslog,
+    )
+    responses = completion.choices[0].message.content
+    messageslog.append({"role": "assistant", "content": responses})
+
+    for question in questions:
+        messageslog.append({"role": "user", "content": question})
+        completion = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=messageslog,
+        )
+        result = completion.choices[0].message.content
+        answersChatGPT.append(result)
+        messageslog.append({"role": "assistant", "content": result})
+
+        if len(answersChatGPT)%10 == 0:
+            print("Get Answers: ", len(answersChatGPT))
+    print("Get Answers done: ", len(answersChatGPT))
+    return messageslog, answersChatGPT
+
+
+
 def getAnswersFromGemini(questions):
     Api_Key = config.GOOGLE_API_KEY
     genai.configure(api_key=Api_Key)

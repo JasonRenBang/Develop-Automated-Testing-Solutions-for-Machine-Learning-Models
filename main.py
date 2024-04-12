@@ -2,7 +2,7 @@ import dataPrepare
 import prototype2
 import analysisSQuAD
 import getAnswers
-
+import celebritiesData
 def main1paragraphDataPrepare():
   fileName = 'paragraphysData2.txt'
   topics, contents, paraphrases, transformations = dataPrepare.prepareData(fileName)
@@ -81,18 +81,20 @@ def main5getQuestionsData():
 
 
 def main6getQuestionsAnalysis():
-  fileName = 'dataOiginal.txt'
+  fileName = 'dataOiginal2.txt'
   entities = prototype2.analyze_questions(fileName)
+  print("Get start analysis")
+  print(" ")
   prototype2.get_QAResult(entities)
+  
 
-
-if __name__=="__main__":
-  questions = analysisSQuAD.getQuestionsData('questions.json')
+def main7getCelebritiesData():
+  fileName = 'compositional_celebrities.json'
+  questions = celebritiesData.getCelebritiesData(fileName)
   answersGemini = getAnswers.getAnswersFromGemini(questions)
-  print(answersGemini)
   answersOpenAI = getAnswers.getAnswersFromOpenAI(questions)
   for i in range(len(questions)):
-    with open('dataOiginal2.txt', 'a',encoding='utf-8') as file:
+    with open('celebritiesQuestionsData.txt', 'a',encoding='utf-8') as file:
         file.write('Question: ' + str(i+1) + '\n')
         file.write('  \n')
         file.write('Original question  \n')
@@ -104,3 +106,13 @@ if __name__=="__main__":
         file.write('Get Answer from Gemini  \n')
         file.write(answersGemini[i]+ '\n')
         file.write('  \n')
+
+
+def main7CelebritiesAnalysis():
+  fileName = 'celebritiesQuestionsData.txt'
+  entities = prototype2.analyze_questions(fileName)
+  print("Get start analysis")
+  print(" ")
+  prototype2.get_QAResult(entities)
+if __name__=="__main__":
+  main7CelebritiesAnalysis()
