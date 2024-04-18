@@ -402,7 +402,7 @@ def get_QAResult(entities):
         answerOpenAI = entity[2]
         answerGemini = entity[3]
 
-        with open('QA_outcomes3.txt', 'a',encoding='utf-8') as file:
+        with open('QA_outcomes6.txt', 'a',encoding='utf-8') as file:
             file.write('--------------------------------------------------------------\n')
             file.write('Question Index: ' + questionIndex + '\n')
             file.write('  \n')
@@ -446,7 +446,7 @@ def get_QAResult(entities):
             ]
         )
         sum2 = completion2.choices[0].message.content
-        with open('QA_outcomes3.txt', 'a',encoding='utf-8') as file:
+        with open('QA_outcomes6.txt', 'a',encoding='utf-8') as file:
             file.write('Their summary produced by ChatGPT are:\n')
             file.write('Summary1 for OpenAI answer:  \n')
             file.write(sum1 + '\n')
@@ -489,11 +489,24 @@ def get_QAResult(entities):
 
         cosine_scores = util.pytorch_cos_sim(embeddings1, embeddings2)
         matched_sentences_and_scores = []
+        best_matches = {}
         for i in range(len(sentences1)):
             best_match_idx  = cosine_scores[i].argmax().item()
             best_score = cosine_scores[i][best_match_idx].item()
-            matched_pair = (sentences1[i], sentences2[best_match_idx], best_score)
-            matched_sentences_and_scores.append(matched_pair)
+
+
+            current_sentence = sentences1[i]
+            matched_sentence = sentences2[best_match_idx]
+
+            if current_sentence in best_matches:
+                if best_matches[current_sentence][2] < best_score:
+                    best_matches[current_sentence] = (current_sentence, matched_sentence, best_score)
+            else:
+                best_matches[current_sentence] = (current_sentence, matched_sentence, best_score)
+        matched_sentences_and_scores = list(best_matches.values())
+
+            # matched_pair = (sentences1[i], sentences2[best_match_idx], best_score)
+            # matched_sentences_and_scores.append(matched_pair)
         print("results for OpenAI and Gemini", matched_sentences_and_scores)
         print(" ")
         print("After pairing, we have identified the following pairs\n")
@@ -530,7 +543,7 @@ def get_QAResult(entities):
             print("  ")
         data.append([contradiction, notcontradiction])
 
-        with open('QA_outcomes3.txt', 'a',encoding='utf-8') as file:
+        with open('QA_outcomes6.txt', 'a',encoding='utf-8') as file:
             file.write('The results of the contradiction detection are:\n')
             file.write('For OpenAI and Gemini\n')
             for i in range(len(resultspp)):
@@ -546,5 +559,5 @@ def get_QAResult(entities):
     df = pd.DataFrame(data, index=questionIndexs, columns=multi_columns)
     print(df)
     print("  ")
-    df.to_csv('QA_outcomes3.csv')
+    df.to_csv('QA_outcomes6.csv')
     print("Done")

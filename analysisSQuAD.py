@@ -1,5 +1,5 @@
 import json
-
+from random import sample
 import getAnswers
 
 def getQuestionsData(fileName):
@@ -20,7 +20,7 @@ def getQuestionsData(fileName):
 
     questions = questions[:1000]
     print("Get Question done: ", len(questions))
-    return questions
+    return questions 
 
 
 
@@ -60,26 +60,31 @@ def loadQuestionsAndAnswers(fileName):
 
     return questions, answersOpenAI, answersGemini
 
+def getQAData(fileName):
+    
+    realAnswers = []
+    dataOriginal ={}
+    datapackages = []
+    with open(fileName) as f:
+        dataOriginal = json.load(f)
+    for item in dataOriginal['data']:
 
+        for i in item['paragraphs']:
+            datapackage = {}
+            paragraph = i['context']
+            datapackage['context'] = paragraph
+            questionsList = []
+            for question in i['qas']:
+                q = question['question']
+                questionsList.append(q) 
+                realAnswer = question['answers'][0]['text']
+                realAnswers.append(realAnswer)
+                
 
-dataOriginal ={}
-datapackages = []
-with open("dev-v1.1.json") as f:
-    dataOriginal = json.load(f)
-for item in dataOriginal['data']:
-
-    for i in item['paragraphs']:
-        datapackage = {}
-        paragraph = i['context']
-        datapackage['context'] = paragraph
-        questionsList = []
-        for question in i['qas']:
-            q = question['question']
-            questionsList.append(q)
-        datapackage['questions'] = questionsList
-        datapackages.append(datapackage)
-datapackages = datapackages[:1]
-print(datapackages)
+            datapackage['questions'] = questionsList
+            datapackages.append(datapackage)
+    datapackages = sample(datapackages, 200)
+    return datapackages, realAnswers
 # questions, answersChatGPT, messageslog  = getAnswers.getAnswersFromOpenAI3(datapackages)
 # print(len(questions))
 # print(len(answersChatGPT))
@@ -87,15 +92,24 @@ print(datapackages)
 
 # for answer in answersChatGPT:
 #     print(answer)
+# questions, answerchatGPT, history = getAnswers.getAnswersFromOpenAI3(datapackages)
+# print(len(questions))
+# print(len(answerchatGPT))
+# print(len(history))
+# for answer in answerchatGPT:
+#     print(answer)
 
-questions, answerGemini, history = getAnswers.getAnswersFromGemini2(datapackages)
-print(len(questions))
-print(len(answerGemini))
-print(len(history))
-for answer in answerGemini:
-    print(answer)
+# for log in history:
+#     print(log)  
+
+# questions, answerGemini, history = getAnswers.getAnswersFromGemini2(datapackages)
+# print(len(questions))
+# print(len(answerGemini))
+# print(len(history))
+# for answer in answerGemini:
+#     print(answer)
 
 
-for log in history:
-    print(log)  
+# for log in history:
+#     print(log)  
 

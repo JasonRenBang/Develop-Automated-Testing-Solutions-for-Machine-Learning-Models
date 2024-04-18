@@ -1,0 +1,141 @@
+import json
+from openai import OpenAI
+import google.generativeai as genai
+import config
+import re
+
+data = []
+realAnswers = []
+questions  = []
+answerFromOpenAI = []
+answerFromGemini = []
+choices = []
+
+with open('dev_rand_split.jsonl') as f:
+    for line in f:
+        data.append(json.loads(line))
+for item in data:
+    question = item['question']['stem']
+    questions.append(question)
+    choice = item['question']['choices']
+    choices.append(choice)
+    realAnswer = item['answerKey']
+    realAnswers.append(realAnswer)
+
+client = OpenAI()
+index= 0
+for index in range(len(questions)):
+    choice = ''
+    
+    with open('ComQA.txt', 'a', encoding='utf-8') as file:
+        file.write('Question: ' + str(index+1) + '\n')
+        file.write('  \n')
+        file.write('The question  \n')
+        file.write(questions[index] + '\n')
+        file.write('  \n')
+        file.write('The Real Answer \n')
+        file.write(realAnswers[index]+ '\n')
+        file.write(' \n')
+    
+    for item in choices[index]:
+        l = item.get('label')
+        t = item.get('text')
+        choice = choice+l+": "+ t + "; "
+    with open('ComQA.txt', 'a', encoding='utf-8') as file:
+        file.write('The Choices \n')
+        file.write(choice + '\n')
+        file.write(' \n')
+    completion = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "Choose one correct answer from these choices based on the question. Please give me the label of the correct answer"},
+            {"role": "user", "content": question + ' Choice: '+choice},
+        ]
+    )
+    result = completion.choices[0].message.content
+    result = re.findall(r'\b[A-E]\b', result)
+    if result:
+        result = result[0]
+    else:
+        result = 'None'
+
+    answerFromOpenAI.append(result)
+    print("Get Answers: "+ str(index+1)+": "+result)
+    with open('ComQA.txt', 'a', encoding='utf-8') as file:
+        file.write('The Answer from OpenAI \n')
+        file.write(result + '\n')
+        file.write(' \n')
+
+    Api_Key = config.GOOGLE_API_KEY
+    genai.configure(api_key=Api_Key)
+    safety_settings = [
+        {
+            "category": "HARM_CATEGORY_HARASSMENT",
+            "threshold": "BLOCK_NONE"
+        },
+        {
+            "category": "HARM_CATEGORY_HATE_SPEECH",
+            "threshold": "BLOCK_NONE"
+        },
+        {
+            "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            "threshold": "BLOCK_NONE"
+        },
+        {
+            "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+            "threshold": "BLOCK_NONE"
+        },
+    ]
+    response = None
+    max_attempts = 10
+    attempts = 0
+    while response is None and attempts < max_attempts:
+        try:
+            model = genai.GenerativeModel('gemini-pro',safety_settings=safety_settings )  
+            response = model.generate_content("Choose one correct answer from these choices based on the question. Please give me the label of the correct answer."+' Question: ' + question+ " Choices: "+ choice)
+        except Exception as e:
+            print(f"Error for question {questions.index(question)}: {e}, Attempts: {attempts + 1}")
+            attempts += 1
+            continue
+    result = response.text
+    result = re.findall(r'\b[A-E]\b', result)
+    if result:
+        result = result[0]
+    else:
+        result = 'None'
+    answerFromGemini.append(result)
+    print("Get Answers: "+ str(index+1)+": "+result)
+    with open('ComQA.txt', 'a', encoding='utf-8') as file:
+        file.write('The Answer from Gemini \n')
+        file.write(result + '\n')
+        file.write(' \n')
+    index = index+1
+
+countContradictions = 0
+countNotContradictions = 0
+for i in range(len(answerFromOpenAI)):
+    if answerFromOpenAI[i] != answerFromGemini[i]:
+        countContradictions = countContradictions+1
+    else:
+        countNotContradictions = countNotContradictions+1
+print(countContradictions)
+print(countContradictions/len(answerFromOpenAI))
+
+with open('ComQA.txt', 'a', encoding='utf-8') as file:
+    file.write('The number of contradictions \n')
+    file.write(str(countContradictions) + '\n')
+    file.write(' \n')
+    file.write('The ratio of contradictions \n')
+    file.write(str(countContradictions/len(answerFromOpenAI)) + '\n')
+    file.write(' \n')
+
+score = 0
+for i in range(len(realAnswers)):
+    if realAnswers[i] == answerFromOpenAI[i]:
+        score = score+1
+
+print(score)
+with open('ComQA.txt', 'a', encoding='utf-8') as file:
+    file.write('The score of OpenAI \n')
+    file.write(str(score) + '\n')
+    file.write(' \n')
