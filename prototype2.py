@@ -402,7 +402,7 @@ def get_QAResult(entities):
         answerOpenAI = entity[2]
         answerGemini = entity[3]
 
-        with open('QA_outcomes3.txt', 'a',encoding='utf-8') as file:
+        with open('QA_outcomes4.txt', 'a',encoding='utf-8') as file:
             file.write('--------------------------------------------------------------\n')
             file.write('Question Index: ' + questionIndex + '\n')
             file.write('  \n')
@@ -446,7 +446,7 @@ def get_QAResult(entities):
             ]
         )
         sum2 = completion2.choices[0].message.content
-        with open('QA_outcomes3.txt', 'a',encoding='utf-8') as file:
+        with open('QA_outcomes4.txt', 'a',encoding='utf-8') as file:
             file.write('Their summary produced by ChatGPT are:\n')
             file.write('Summary1 for OpenAI answer:  \n')
             file.write(sum1 + '\n')
@@ -530,7 +530,7 @@ def get_QAResult(entities):
             print("  ")
         data.append([contradiction, notcontradiction])
 
-        with open('QA_outcomes3.txt', 'a',encoding='utf-8') as file:
+        with open('QA_outcomes4.txt', 'a',encoding='utf-8') as file:
             file.write('The results of the contradiction detection are:\n')
             file.write('For OpenAI and Gemini\n')
             for i in range(len(resultspp)):
@@ -546,5 +546,5 @@ def get_QAResult(entities):
     df = pd.DataFrame(data, index=questionIndexs, columns=multi_columns)
     print(df)
     print("  ")
-    df.to_csv('QA_outcomes3.csv')
+    df.to_csv('QA_outcomes4.csv')
     print("Done")

@@ -104,7 +104,7 @@ def getAnswersFromOpenAI3(packages):
             messageslog.append({"role": "assistant", "content": result})
             
             print("Get Answers: ", len(answersChatGPT))
-    print("Get Answers done: ", len(answersChatGPT))
+        print("Get Answers done: ", len(answersChatGPT))
 
 
     return questions, answersChatGPT, messageslog
@@ -168,6 +168,10 @@ def getAnswersFromGemini(questions):
 def getAnswersFromGemini2(packages):
     Api_Key = config.GOOGLE_API_KEY
     genai.configure(api_key=Api_Key)
+    generation_config = {
+        'candidate_count' : 1,
+        'temperature' : 0.7
+        }
     safety_settings = [
         {
             "category": "HARM_CATEGORY_HARASSMENT",
@@ -188,70 +192,90 @@ def getAnswersFromGemini2(packages):
     ]
     answersGemini = []
     questons = []
+    model = genai.GenerativeModel('gemini-pro',safety_settings=safety_settings, generation_config=generation_config )
     for package in packages:
-        history = []
-        history.append({'role': 'user', 'parts': ['You are fed a paragraph before you answer the questions.']})
+        
+        chat = model.start_chat(history = [])
+ #       history.append({'role': 'user', 'parts': ['You are fed a paragraph before you answer the questions.']})
         response = None
         max_attempts = 10
         attempts = 0
+#        model = genai.GenerativeModel('gemini-pro',safety_settings=safety_settings, generation_config=generation_config )
         while response is None and attempts < max_attempts:
             try:
-                model = genai.GenerativeModel('gemini-pro',safety_settings=safety_settings )
-                response = model.generate_content(history)
+                response = chat.send_message("You are fed a paragraph before you answer the questions.")
+#                response = model.start_chat(history)
+                
             except Exception as e:
                 print(f"Error for question {packages.index(package)}: {e}, Attempts: {attempts + 1}")
                 attempts += 1
                 continue
-        history.append({'role': 'model', 'parts': [response.text]})
+#        result = response.candidates[0].content.parts[0].text
+ #       result = response.text
+#        history.append({'role': 'model', 'parts': [result]})
 
         context = package['context']
-        history.append({'role': 'user', 'parts': [context]})
+#        history.append({'role': 'user', 'parts': [context]})
 
         response = None
         max_attempts = 10
         attempts = 0
         while response is None and attempts < max_attempts:
             try:
-                model = genai.GenerativeModel('gemini-pro',safety_settings=safety_settings )
-                response = model.generate_content(history)
+#                model = genai.GenerativeModel('gemini-pro',safety_settings=safety_settings )
+ #               response = model.generate_content(history)
+                response = chat.send_message("This is the feeding content: "+context)
             except Exception as e:
                 print(f"Error for question {packages.index(package)}: {e}, Attempts: {attempts + 1}")
                 attempts += 1
                 continue
-        history.append({'role': 'model', 'parts': [response.text]})
+#        result = response.text
+#        history.append({'role': 'model', 'parts': [result]})
         
-        history.append({'role': 'user', 'parts': ["Based on the context, you are fed the questions.Give the question's answer in a paragraph."]})
+#        history.append({'role': 'user', 'parts': ["Based on the context, you are fed the questions.Give the question's answer in a paragraph."]})
         response = None
         max_attempts = 10
         attempts = 0
         while response is None and attempts < max_attempts:
             try:
-                model = genai.GenerativeModel('gemini-pro',safety_settings=safety_settings )
-                response = model.generate_content(history)
+#                model = genai.GenerativeModel('gemini-pro',safety_settings=safety_settings )
+#               response = model.generate_content(history)
+                response = chat.send_message("Based on the context, you are fed the questions.Give the question's answer in a paragraph.")
             except Exception as e:
                 print(f"Error for question {packages.index(package)}: {e}, Attempts: {attempts + 1}")
                 attempts += 1
                 continue
-        history.append({'role': 'model', 'parts': [response.text]})
+#        result = response.text
+#       history.append({'role': 'model', 'parts': [result]})
 
         for question in package['questions']:
             questons.append(question)
-            history.append({'role': 'user', 'parts': [question]})
+#            history.append({'role': 'user', 'parts': [question]})
             response = None
             max_attempts = 10
             attempts = 0
             while response is None and attempts < max_attempts:
                 try:  
-                    model = genai.GenerativeModel('gemini-pro',safety_settings=safety_settings )
-                    response = model.generate_content(history)
+                    # model = genai.GenerativeModel('gemini-pro',safety_settings=safety_settings )
+                    # response = model.generate_content(history)
+                    response = chat.send_message(question)
                 except Exception as e:
                     print(f"Error for question {packages.index(package)}: {e}, Attempts: {attempts + 1}")
                     attempts += 1
                     continue
-            
-            answersGemini.append(response.text)
-            history.append({'role': 'model', 'parts': [response.text]})
+            if response is not None and response.text is not None:
+                result = response.text
+            else:
+               
+                if response and response.candidates and len(response.candidates) > 0 and response.candidates[0].content and response.candidates[0].content.parts and len(response.candidates[0].content.parts) > 0 and response.candidates[0].content.parts[0].text is not None:
+                    result = response.candidates[0].content.parts[0].text
+                else:
+                    print(response)
+                    result = "No answer found."
+                    print("No answer found. at question: ", question)
+            answersGemini.append(result)
+            # history.append({'role': 'model', 'parts': [result]})
             print("Get Answers: ", len(answersGemini))
             
         print("Get Answers done: ", len(answersGemini))
-    return questons, answersGemini, history
+    return questons, answersGemini, chat.history

@@ -114,5 +114,34 @@ def main7CelebritiesAnalysis():
   print("Get start analysis")
   print(" ")
   prototype2.get_QAResult(entities)
+
+
+def main8getQAPackageData():
+  fileName = 'dev-v1.1.json'
+  packages  = analysisSQuAD.getQAData(fileName)
+
+  questions, answersGemini, history = getAnswers.getAnswersFromGemini2(packages)
+  print(len(questions))
+  questions2, answersOpenAI, history2 = getAnswers.getAnswersFromOpenAI3(packages)
+
+  for i in range(len(questions)):
+    with open('dataOiginal3.txt', 'a',encoding='utf-8') as file:
+        file.write('Question: ' + str(i+1) + '\n')
+        file.write('  \n')
+        file.write('Original question  \n')
+        file.write(questions[i] + '\n')
+        file.write('  \n')
+        file.write('Get Answer from OpenAI  \n')
+        file.write(answersOpenAI[i]+ '\n')
+        file.write('  \n')
+        file.write('Get Answer from Gemini  \n')
+        file.write(answersGemini[i]+ '\n')
+        file.write('  \n')
+def main9getQAAnalysis():
+  fileName = 'dataOiginal3.txt'
+  entities = prototype2.analyze_questions(fileName)
+  print("Get start analysis")
+  print(" ")
+  prototype2.get_QAResult(entities)
 if __name__=="__main__":
-  main7CelebritiesAnalysis()
+  main8getQAPackageData()
