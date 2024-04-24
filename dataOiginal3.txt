@@ -17517,6 +17517,7 @@ Fort Caroline was a French fort that was built on the St. Johns River in 1564. I
 
 The reconstruction of Fort Caroline is not an exact replica of the original fort. However, it is based on archaeological evidence and historical records. The fort provides visitors with a glimpse into the history of Florida and the struggles between the French and Spanish for control of the New World.
   
+<<<<<<< HEAD
 Question: 1
   
 Original question  
@@ -35767,3 +35768,5 @@ By adjusting the concentration of their body fluids and the volume of their meso
 
 **In summary, ciliary rosettes pump water out of the mesoglea, which makes the ctenophore more dense and helps it to sink in water.**
   
+=======
+>>>>>>> 2d6adfaaea3446661c7c52194b0a3c3004b296ec
