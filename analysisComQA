@@ -3,6 +3,7 @@ from openai import OpenAI
 import google.generativeai as genai
 import config
 import re
+from random import sample
 
 data = []
 realAnswers = []
@@ -11,9 +12,10 @@ answerFromOpenAI = []
 answerFromGemini = []
 choices = []
 
-with open('dev_rand_split.jsonl') as f:
+with open('train_rand_split.jsonl') as f:
     for line in f:
         data.append(json.loads(line))
+data = sample(data, 1000)
 for item in data:
     question = item['question']['stem']
     questions.append(question)
@@ -139,3 +141,29 @@ with open('ComQA.txt', 'a', encoding='utf-8') as file:
     file.write('The score of OpenAI \n')
     file.write(str(score) + '\n')
     file.write(' \n')
+
+totalquestions = len(questions)
+error = 0
+countCannotAnswerByGemini = 0
+for i in range(len(realAnswers)):
+    if answerFromGemini[i] != 'None':
+        if answerFromOpenAI[i] == answerFromGemini[i] and answerFromOpenAI[i] != realAnswers[i]:
+            error = error+1
+    else:
+        countCannotAnswerByGemini = countCannotAnswerByGemini+1
+        totalquestions = totalquestions-1   
+print(error)
+print(error/totalquestions)
+
+with open('ComQA.txt', 'a', encoding='utf-8') as file:
+    file.write('The number of errors \n')
+    file.write(str(error) + '\n')
+    file.write(' \n')
+    file.write('The ratio of errors \n')
+    file.write(str(error/totalquestions) + '\n')
+    file.write(' \n')
+    file.write('The number of questions that Gemini cannot answer \n')
+    file.write(str(countCannotAnswerByGemini) + '\n')
+    file.write(' \n')
+
+
