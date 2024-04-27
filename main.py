@@ -94,7 +94,7 @@ def main7getCelebritiesData():
   answersGemini = getAnswers.getAnswersFromGemini(questions)
   answersOpenAI = getAnswers.getAnswersFromOpenAI(questions)
   for i in range(len(questions)):
-    with open('celebritiesQuestionsData.txt', 'a',encoding='utf-8') as file:
+    with open('celebritiesQuestionsData2.txt', 'a',encoding='utf-8') as file:
         file.write('Question: ' + str(i+1) + '\n')
         file.write('  \n')
         file.write('Original question  \n')
@@ -109,7 +109,7 @@ def main7getCelebritiesData():
 
 
 def main7CelebritiesAnalysis():
-  fileName = 'celebritiesQuestionsData.txt'
+  fileName = 'celebritiesQuestionsData2.txt'
   entities = prototype2.analyze_questions(fileName)
   print("Get start analysis")
   print(" ")
@@ -125,7 +125,7 @@ def main8getQAPackageData():
   questions2, answersOpenAI, history2 = getAnswers.getAnswersFromOpenAI3(packages)
 
   for i in range(len(questions)):
-    with open('dataOiginal5.txt', 'a',encoding='utf-8') as file:
+    with open('dataOiginal7.txt', 'a',encoding='utf-8') as file:
         file.write('Question: ' + str(i+1) + '\n')
         file.write('  \n')
         file.write('Original question  \n')
@@ -138,7 +138,7 @@ def main8getQAPackageData():
         file.write(answersGemini[i]+ '\n')
         file.write('  \n')
   for i in range(len(questions)):
-    with open('QARealAnswers2.txt', 'a', encoding='utf-8') as file:
+    with open('QARealAnswers4.txt', 'a', encoding='utf-8') as file:
         file.write('Question: ' + str(i+1) + '\n')
         file.write('  \n')
         file.write('The question  \n')
@@ -148,10 +148,10 @@ def main8getQAPackageData():
         file.write(realAnswers[i]+ '\n')
         file.write(' \n')
 def main9getQAAnalysis():
-  fileName = 'dataOiginal5.txt'
+  fileName = 'dataOiginal7.txt'
   entities = prototype2.analyze_questions(fileName)
   print("Get start analysis")
   print(" ")
   prototype2.get_QAResult(entities)
 if __name__=="__main__":
-  main9getQAAnalysis()
+  main8getQAPackageData()

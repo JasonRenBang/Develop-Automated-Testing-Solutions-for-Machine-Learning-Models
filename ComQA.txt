@@ -20857,3 +20857,34 @@ The ratio of contradictions
 The score of OpenAI 
 232
  
+Question: 1
+  
+The question  
+Sarah told him to make sure that the bundle was tight. Some fell out because it was what?
+  
+The Real Answer 
+B
+ 
+The Choices 
+A: broad; B: loose; C: slack; D: windtight; E: crap; 
+ 
+The Answer from OpenAI 
+A
+ 
+The Answer from Gemini 
+None
+ 
+Question: 2
+  
+The question  
+Where would a gazelle like to run?
+  
+The Real Answer 
+B
+ 
+The Choices 
+A: uphill; B: open field; C: asia; D: encyclopedia; E: steppe; 
+ 
+The Answer from OpenAI 
+B
+ 

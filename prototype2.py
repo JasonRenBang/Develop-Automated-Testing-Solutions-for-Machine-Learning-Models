@@ -387,7 +387,7 @@ def get_QAResult(entities):
 
 
     multi_columns = pd.MultiIndex.from_tuples(
-        [('OpenAI vs Gemini\'', 'contradiction'), ('OpenAI vs Gemini', 'not contradiction')],
+        [('OpenAI vs Gemini\'', 'contradiction'), ('OpenAI vs Gemini', 'not contradiction'), ('OpenAI vs Gemini\'', 'irrelevant')],
         names=['Question', ' ']
     )
     data = []
@@ -402,7 +402,7 @@ def get_QAResult(entities):
         answerOpenAI = entity[2]
         answerGemini = entity[3]
 
-        with open('QA_outcomes6.txt', 'a',encoding='utf-8') as file:
+        with open('QA_outcomes8.txt', 'a',encoding='utf-8') as file:
             file.write('--------------------------------------------------------------\n')
             file.write('Question Index: ' + questionIndex + '\n')
             file.write('  \n')
@@ -446,7 +446,7 @@ def get_QAResult(entities):
             ]
         )
         sum2 = completion2.choices[0].message.content
-        with open('QA_outcomes6.txt', 'a',encoding='utf-8') as file:
+        with open('QA_outcomes8.txt', 'a',encoding='utf-8') as file:
             file.write('Their summary produced by ChatGPT are:\n')
             file.write('Summary1 for OpenAI answer:  \n')
             file.write(sum1 + '\n')
@@ -514,6 +514,7 @@ def get_QAResult(entities):
 
         contradiction = 0
         notcontradiction = 0
+        irrelevant = 0
 
         resultspp = []
         for pair in matched_sentences_and_scores:
@@ -522,7 +523,7 @@ def get_QAResult(entities):
             completion3 = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=[
-                    {"role": "system", "content": "Could you tell me if these two sentences are contradicting each other. If they are contradicting, please say True first, otherwise say False. And then tell me the reason."},
+                    {"role": "system", "content": "Could you tell me if these two sentences are contradicting each other. If they are contradicting, please say True first, otherwise say False. Or if you think the two sentences are not relevant, please give me Irrelevant label first. And then tell me the reason. And make sure the lable is matching the explanation. If you say True, the explanation should be about the contradiction. If you say False, the explanation should be about the relevance. If you say Irrelevant, the explanation should be about the irrelevance."},
                     {"role": "user", "content": sentence1},
                     {"role": "user", "content": sentence2}
                 ]
@@ -532,6 +533,8 @@ def get_QAResult(entities):
 
             if result.startswith('True'):
                 contradiction  = contradiction+ 1
+            elif result.startswith('Irrelevant'):
+                irrelevant = irrelevant+ 1
             else:
                 notcontradiction = notcontradiction+ 1
 
@@ -541,9 +544,9 @@ def get_QAResult(entities):
             print("  : ")
             print(result)
             print("  ")
-        data.append([contradiction, notcontradiction])
+        data.append([contradiction, notcontradiction,irrelevant])
 
-        with open('QA_outcomes6.txt', 'a',encoding='utf-8') as file:
+        with open('QA_outcomes8.txt', 'a',encoding='utf-8') as file:
             file.write('The results of the contradiction detection are:\n')
             file.write('For OpenAI and Gemini\n')
             for i in range(len(resultspp)):
@@ -559,5 +562,5 @@ def get_QAResult(entities):
     df = pd.DataFrame(data, index=questionIndexs, columns=multi_columns)
     print(df)
     print("  ")
-    df.to_csv('QA_outcomes6.csv')
+    df.to_csv('QA_outcomes8.csv')
     print("Done")

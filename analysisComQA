@@ -15,7 +15,8 @@ choices = []
 with open('train_rand_split.jsonl') as f:
     for line in f:
         data.append(json.loads(line))
-data = sample(data, 1000)
+print(len(data))
+data = sample(data, 1500)
 for item in data:
     question = item['question']['stem']
     questions.append(question)
@@ -27,9 +28,10 @@ for item in data:
 client = OpenAI()
 index= 0
 for index in range(len(questions)):
+    print("Get real Answers: "+ realAnswers[index])
     choice = ''
     
-    with open('ComQA.txt', 'a', encoding='utf-8') as file:
+    with open('ComQA5.txt', 'a', encoding='utf-8') as file:
         file.write('Question: ' + str(index+1) + '\n')
         file.write('  \n')
         file.write('The question  \n')
@@ -43,27 +45,29 @@ for index in range(len(questions)):
         l = item.get('label')
         t = item.get('text')
         choice = choice+l+": "+ t + "; "
-    with open('ComQA.txt', 'a', encoding='utf-8') as file:
+    with open('ComQA5.txt', 'a', encoding='utf-8') as file:
         file.write('The Choices \n')
         file.write(choice + '\n')
         file.write(' \n')
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "Choose one correct answer from these choices based on the question. Please give me the label of the correct answer"},
+            {"role": "system", "content": "Choose one correct answer from these choices based on the question. Please give me the label of the correct answer. You must give one answer that you think is really correct.You cannot return nothing to me. If none of the choices is correct, choose a closest one and give me the label."},
             {"role": "user", "content": question + ' Choice: '+choice},
         ]
     )
     result = completion.choices[0].message.content
+    print("Get Answers: "+ str(index+1)+": "+result)
     result = re.findall(r'\b[A-E]\b', result)
+    
     if result:
         result = result[0]
     else:
         result = 'None'
 
     answerFromOpenAI.append(result)
-    print("Get Answers: "+ str(index+1)+": "+result)
-    with open('ComQA.txt', 'a', encoding='utf-8') as file:
+    print("Get Answer4: "+ str(index+1)+": "+result)
+    with open('ComQA5.txt', 'a', encoding='utf-8') as file:
         file.write('The Answer from OpenAI \n')
         file.write(result + '\n')
         file.write(' \n')
@@ -94,12 +98,13 @@ for index in range(len(questions)):
     while response is None and attempts < max_attempts:
         try:
             model = genai.GenerativeModel('gemini-pro',safety_settings=safety_settings )  
-            response = model.generate_content("Choose one correct answer from these choices based on the question. Please give me the label of the correct answer."+' Question: ' + question+ " Choices: "+ choice)
+            response = model.generate_content("Choose one correct answer from these choices based on the question. Please give me the label of the correct answer."+' Question: ' + question+ " Choices: "+ choice+ "You must give one answer that you think is really correct.You cannot return nothing to me.If none of the choices is correct, choose a closest oneand give me the label.")
         except Exception as e:
             print(f"Error for question {questions.index(question)}: {e}, Attempts: {attempts + 1}")
             attempts += 1
             continue
     result = response.text
+    print("Get Answers: "+ str(index+1)+": "+result)
     result = re.findall(r'\b[A-E]\b', result)
     if result:
         result = result[0]
@@ -107,28 +112,41 @@ for index in range(len(questions)):
         result = 'None'
     answerFromGemini.append(result)
     print("Get Answers: "+ str(index+1)+": "+result)
-    with open('ComQA.txt', 'a', encoding='utf-8') as file:
+    with open('ComQA5.txt', 'a', encoding='utf-8') as file:
         file.write('The Answer from Gemini \n')
         file.write(result + '\n')
         file.write(' \n')
     index = index+1
+       
 
 countContradictions = 0
 countNotContradictions = 0
+totalquestions = len(questions)
+error = 0
+countCannotAnswerByGemini = 0
+countCannotAnswerByOpenAI = 0
 for i in range(len(answerFromOpenAI)):
-    if answerFromOpenAI[i] != answerFromGemini[i]:
-        countContradictions = countContradictions+1
+    if answerFromOpenAI[i] != 'None' and answerFromGemini[i] != 'None':
+        if answerFromOpenAI[i] != answerFromGemini[i]:
+            countContradictions = countContradictions+1
+        else:
+            countNotContradictions = countNotContradictions+1
     else:
-        countNotContradictions = countNotContradictions+1
+        if answerFromOpenAI[i] == 'None':
+            countCannotAnswerByOpenAI = countCannotAnswerByOpenAI+1
+        if answerFromGemini[i] == 'None':
+            countCannotAnswerByGemini = countCannotAnswerByGemini+1
+        totalquestions = totalquestions-1
+
 print(countContradictions)
 print(countContradictions/len(answerFromOpenAI))
 
-with open('ComQA.txt', 'a', encoding='utf-8') as file:
+with open('ComQA5.txt', 'a', encoding='utf-8') as file:
     file.write('The number of contradictions \n')
     file.write(str(countContradictions) + '\n')
     file.write(' \n')
     file.write('The ratio of contradictions \n')
-    file.write(str(countContradictions/len(answerFromOpenAI)) + '\n')
+    file.write(str(countContradictions/totalquestions) + '\n')
     file.write(' \n')
 
 score = 0
@@ -137,25 +155,23 @@ for i in range(len(realAnswers)):
         score = score+1
 
 print(score)
-with open('ComQA.txt', 'a', encoding='utf-8') as file:
+with open('ComQA5.txt', 'a', encoding='utf-8') as file:
     file.write('The score of OpenAI \n')
     file.write(str(score) + '\n')
     file.write(' \n')
 
-totalquestions = len(questions)
+
 error = 0
-countCannotAnswerByGemini = 0
+
 for i in range(len(realAnswers)):
-    if answerFromGemini[i] != 'None':
+    if answerFromOpenAI[i] != 'None' and answerFromGemini[i] != 'None':
         if answerFromOpenAI[i] == answerFromGemini[i] and answerFromOpenAI[i] != realAnswers[i]:
             error = error+1
-    else:
-        countCannotAnswerByGemini = countCannotAnswerByGemini+1
-        totalquestions = totalquestions-1   
+   
 print(error)
 print(error/totalquestions)
 
-with open('ComQA.txt', 'a', encoding='utf-8') as file:
+with open('ComQA5.txt', 'a', encoding='utf-8') as file:
     file.write('The number of errors \n')
     file.write(str(error) + '\n')
     file.write(' \n')
@@ -165,5 +181,35 @@ with open('ComQA.txt', 'a', encoding='utf-8') as file:
     file.write('The number of questions that Gemini cannot answer \n')
     file.write(str(countCannotAnswerByGemini) + '\n')
     file.write(' \n')
+    file.write('The number of questions that OpenAI cannot answer \n')
+    file.write(str(countCannotAnswerByOpenAI) + '\n')
+    file.write(' \n')
+countRecognizeInCorrect = 0
+countRecognizeCorrect = 0
+for i in range(len(questions)):
+    if answerFromOpenAI[i] != 'None' and answerFromGemini[i] != 'None':
+        if answerFromOpenAI[i] != answerFromGemini[i] and (answerFromOpenAI[i] != realAnswers[i] or answerFromGemini[i] != realAnswers[i]):
+            countRecognizeInCorrect  = countRecognizeInCorrect+1
+        elif answerFromOpenAI[i] == answerFromGemini[i] and answerFromOpenAI[i] == realAnswers[i]:
+            countRecognizeCorrect  = countRecognizeCorrect+1
 
+countRecognizeOutput = countRecognizeInCorrect+countRecognizeCorrect
+print(countRecognizeOutput)
+print(countRecognizeOutput/totalquestions)
+with open("ComQA5.txt", "a", encoding='utf-8') as file:
+    file.write('The total questions: \n')
+    file.write(str(totalquestions) + '\n')
+    file.write(' \n')
+    file.write('The number of questions that system can recognize the correct answers and incorrect answers\n')
+    file.write(str(countRecognizeOutput) + '\n')
+    file.write(' \n')
+    file.write('The ratio of questions that system can recognize the correct answers and the incorrect answers \n')
+    file.write(str(countRecognizeOutput/totalquestions) + '\n')
+    file.write(' \n')
+    file.write('The number of questions that system can recognize the incorrect answer \n')
+    file.write(str(countRecognizeInCorrect) + '\n')
+    file.write(' \n')
+    file.write('The number of questions that system can recognize the correct answer \n')
+    file.write(str(countRecognizeCorrect) + '\n')
+    file.write(' \n')
 
